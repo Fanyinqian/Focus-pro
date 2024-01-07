@@ -1,0 +1,4 @@
+.dumi-default-hero-title > span {
+  background: linear-gradient(30deg, #90c2ff 30%, #8965ff);
+  background-clip: text;
+} /*# sourceMappingURL=./overrides.css.map */
