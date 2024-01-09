@@ -45,7 +45,9 @@
     ]
   },
   "dependencies": {
-    "@ant-design/pro-components": "^2.6.43"
+    "@ant-design/icons": "^5.2.6",
+    "@ant-design/pro-components": "^2.6.43",
+    "antd": "^5.12.8"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -53,6 +55,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/lint": "^4.0.0",
+    "axios": "^1.6.5",
     "dumi": "^2.2.13",
     "eslint": "^8.23.0",
     "father": "^4.1.0",
