@@ -1,2 +1,2 @@
-export { default as Foo } from './Foo';
-export { default as Hello } from './Foo2';
+export { default as Hello } from './ProDesciptions';
+export { default as ZFProTable } from './ProTable';

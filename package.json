@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "A react library developed with dumi",
   "license": "MIT",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -42,6 +43,9 @@
       "eslint --fix",
       "prettier --parser=typescript --write"
     ]
+  },
+  "dependencies": {
+    "@ant-design/pro-components": "^2.6.43"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
