@@ -9,4 +9,10 @@ nav:
 
 ## 快速开始
 
-关于 guide 首页内容
+### 使用
+
+```js | pure{1}
+import { ZFProTable } from '@yq/focus-pro';
+
+export default () => <ZFProTable headerTitle="高级表格" columns={[]} />;
+```
