@@ -1,9 +1,9 @@
 ---
+title: ZFProDescriptions - 定义列表
 nav: 组件
 group:
   title: 数据展示
-title: ZFProDescriptions
-order: 2
+order: 3
 toc: content
 ---
 
@@ -14,7 +14,7 @@ toc: content
 :::
 
 ```jsx {3} | pure
-import { ZHProDescriptions } from '@fe/usc-pro';
+import { ZFProDescriptions } from '@fe/usc-pro';
 
-export default () => <ZHProDescriptions title="Hello dumi!" />;
+export default () => <ZFProDescriptions title="Hello dumi!" />;
 ```

@@ -1,7 +1,7 @@
 import { ProForm } from '@ant-design/pro-components';
-import { ProFormFielsItemProps } from '@ant-design/pro-form/es/typing';
+import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { AutoComplete, AutoCompleteProps } from 'antd';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 
 export const Email: FC<AutoCompleteProps> = () => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>(
@@ -31,7 +31,7 @@ export const Email: FC<AutoCompleteProps> = () => {
   );
 };
 
-const FormField: FC<ProFormFielsItemProps<AutoCompleteProps, any>> = (
+const FormField: FC<ProFormFieldItemProps<AutoCompleteProps, any>> = (
   props,
 ) => {
   return (

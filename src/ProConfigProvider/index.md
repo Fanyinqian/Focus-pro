@@ -1,1 +1,1 @@
-## ZFProConfiGProvider
+## ZFProConfigProvider

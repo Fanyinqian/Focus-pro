@@ -48,7 +48,8 @@
     "@ant-design/icons": "^5.2.6",
     "@ant-design/pro-components": "^2.6.43",
     "@ant-design/pro-form": "^2.23.1",
-    "antd": "^5.12.8"
+    "antd": "^5.12.8",
+    "dayjs": "^1.11.10"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",

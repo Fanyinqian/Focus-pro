@@ -1,6 +1,5 @@
 ---
-title: ZFProTable
-
+title: ZFProTable - 高级表格
 nav: 组件
 group:
   title: 数据展示
