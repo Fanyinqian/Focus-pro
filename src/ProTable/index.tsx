@@ -1,6 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
-import { type FC } from 'react';
 
-const ZFProTable: FC = ProTable;
+const ZFProTable: typeof ProTable = ProTable;
 
 export default ZFProTable;
