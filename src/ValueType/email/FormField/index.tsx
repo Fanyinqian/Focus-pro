@@ -1,12 +1,22 @@
-import { ProForm } from '@ant-design/pro-components';
+import {
+  ProFieldFCMode,
+  ProFieldFCRenderProps,
+  ProForm,
+} from '@ant-design/pro-components';
+import { EditOrReadOnlyContext } from '@ant-design/pro-form/es/BaseForm/EditOrReadOnlyContext';
 import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { AutoComplete, AutoCompleteProps } from 'antd';
-import { FC, useState } from 'react';
-
-export const Email: FC<AutoCompleteProps> = () => {
+import { FC, useContext, useState } from 'react';
+import Display from '../Display';
+export const Email: FC<ProFieldFCRenderProps & AutoCompleteProps> = (props) => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>(
     [],
   );
+  const { value = '-', mode } = props;
+  if (mode === 'read') {
+    return <Display text={value} />;
+  }
+  console.log('props', props.fieldProps);
 
   const handleSearch = (value: string) => {
     let res: { value: string; label: string }[] = [];
@@ -23,10 +33,10 @@ export const Email: FC<AutoCompleteProps> = () => {
 
   return (
     <AutoComplete
-      style={{ width: 200 }}
       onSearch={handleSearch}
       placeholder="input here"
       options={options}
+      {...props}
     />
   );
 };
@@ -34,9 +44,11 @@ export const Email: FC<AutoCompleteProps> = () => {
 const FormField: FC<ProFormFieldItemProps<AutoCompleteProps, any>> = (
   props,
 ) => {
+  const mode = useContext(EditOrReadOnlyContext)?.mode as ProFieldFCMode;
+  console.log('edit Mode', props);
   return (
     <ProForm.Item {...props}>
-      <Email {...props.fieldProps}></Email>
+      <Email {...props.fieldProps} mode={mode}></Email>
     </ProForm.Item>
   );
 };
