@@ -20,6 +20,7 @@ import {
 
 // 自定义的 ProFormFields
 import ZFProFormEmail from '../ValueType/email/FormField';
+import ZFProFormTags from '../ValueType/tags/FormField';
 
 export {
   ZFProFormCaptcha,
@@ -35,6 +36,7 @@ export {
   ZFProFormSelect,
   ZFProFormSlider,
   ZFProFormSwitch,
+  ZFProFormTags,
   ZFProFormText,
   ZFProFormTextArea,
   ZFProFormTreeSelect,

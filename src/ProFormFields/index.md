@@ -53,6 +53,52 @@ const ZFProFormText = (props) => {
 | [ZFProFormSwitch](https://ant.design/components/switch-cn/)                      | 用于输入互斥的两个选项，一般是 true 和 false                                                                |
 | [ZFProFormUploadButton](https://ant.design/components/upload-cn/)                | 按钮样式的上传文件                                                                                          |
 | [ZFProFormUploadDragger](https://ant.design/components/upload-cn/)               | 区域的上传文件，一般用于突出上传文件的表单中                                                                |
-| ProFormMoney                                                                     | 通用金额输入组件                                                                                            |
+| ZFProFormMoney                                                                   | 通用金额输入组件                                                                                            |
 | [ZFProFormSegmented](https://ant.design/components/segmented-cn/)                | 分段控制器                                                                                                  |
 | ZFProFormEmail                                                                   | 由于输入邮箱                                                                                                |
+|  |
+| [ZFProFormTags](https://ant.design/components/select-cn/)                        | 标签输入                                                                                                    |
+
+### ZFProFormTags
+
+表单参数与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
+
+<!-- <code src='./demos/tags/Table.tsx'></code> -->
+
+##### valueEnumType
+
+```ts
+{
+  /** @name 演示的文案 */
+  text: React.ReactNode;
+  /** @name 预定的颜色 */
+  status?: string;
+  /** @name 自定义的颜色 */
+  color?: string;
+  /** @name 是否禁用 */
+  disabled?: boolean;
+};
+```
+
+##### 标签颜色渲染优先级
+
+1. 优先根据 `status` 设置标签颜色
+2. 其次根据设置的 `color` 设置标签颜色
+3. 如果两个都没有，则从默认的色板里顺序匹配颜色
+
+##### 已支持的 `status`
+
+```ts
+const StatusColorMap: Record<string, string> = {
+  // 成功 or 失败，通过 or 不通过
+  Success: 'green',
+  Error: 'red',
+
+  // 优先级
+  P0: 'red',
+  P1: 'volcano',
+  P2: 'cyan',
+  P3: 'green',
+  P4: 'default',
+};
+```
