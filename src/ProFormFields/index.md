@@ -56,14 +56,14 @@ const ZFProFormText = (props) => {
 | ZFProFormMoney                                                                   | 通用金额输入组件                                                                                            |
 | [ZFProFormSegmented](https://ant.design/components/segmented-cn/)                | 分段控制器                                                                                                  |
 | ZFProFormEmail                                                                   | 由于输入邮箱                                                                                                |
-|  |
+|                                                                                  |
 | [ZFProFormTags](https://ant.design/components/select-cn/)                        | 标签输入                                                                                                    |
 
 ### ZFProFormTags
 
 表单参数与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
 
-<!-- <code src='./demos/tags/Table.tsx'></code> -->
+<code src="./demos/tags/TagsTable.tsx"></code>
 
 ##### valueEnumType
 
@@ -93,12 +93,41 @@ const StatusColorMap: Record<string, string> = {
   // 成功 or 失败，通过 or 不通过
   Success: 'green',
   Error: 'red',
+  Warning: 'orange',
+  Processing: 'blue',
+  Normal: 'default',
 
   // 优先级
   P0: 'red',
-  P1: 'volcano',
+  P1: 'orange',
   P2: 'cyan',
   P3: 'green',
-  P4: 'default',
+  P4: '#c9c9c9',
 };
 ```
+
+### ZFProFormLink
+
+Link 表单项组件支持的参数与 [a](https://www.runoob.com/tags/tag-a.html) 标签一致
+
+`dataSource` 支持的数据类型
+
+```ts
+type LinkObj = {
+  href: string;
+  text?: string;
+};
+
+interface LinkProps {
+  data: string | LinkObj | (LinkObj | string)[];
+  fieldProps: any;
+}
+```
+
+<code src='./demos/link/LinkDescription.tsx'></code>
+
+### ZFProFormBadges
+
+表单参数与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
+
+<code src='./demos/badges/BadgesTable.tsx'></code>

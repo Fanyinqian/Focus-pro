@@ -19,6 +19,7 @@ import {
 } from '@ant-design/pro-components';
 
 // 自定义的 ProFormFields
+import ZFProFromBadges from '../ValueType/badges/FormField';
 import ZFProFormEmail from '../ValueType/email/FormField';
 import ZFProFormTags from '../ValueType/tags/FormField';
 
@@ -42,4 +43,5 @@ export {
   ZFProFormTreeSelect,
   ZFProFormUploadButton,
   ZFProFormUploadDragger,
+  ZFProFromBadges,
 };

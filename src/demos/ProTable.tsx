@@ -77,6 +77,16 @@ const ProTable = () => {
         },
       },
     },
+    {
+      key: 'badges',
+      title: '徽标',
+      dataIndex: 'badges',
+      valueType: 'badges',
+      valueEnum: {
+        0: { text: '标一', status: 'P0' },
+        1: { text: '标二', status: 'P1' },
+      },
+    },
   ];
 
   const dataSource = [
@@ -87,6 +97,7 @@ const ProTable = () => {
       slider: 10,
       email: 'yinqian@qq.com',
       tags: 7,
+      badges: 1,
     },
     {
       key: 2,
@@ -95,6 +106,7 @@ const ProTable = () => {
       slider: 30,
       email: 'yinqian@qq.com',
       tags: [0, 1, 2, 3],
+      badges: [0, 1],
     },
   ];
 

@@ -9,3 +9,5 @@ export { default as ZFProTable } from './ProTable';
 export { default as ZFSchemaForm } from './SchemaForm';
 // 导出Pro的表单项及自定义的表单项
 export * from './ProFormFields';
+// 导出和actions相关的所有类型
+export * from './ProTable';

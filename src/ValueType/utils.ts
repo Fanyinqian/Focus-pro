@@ -2,13 +2,13 @@ import type {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-components';
-import colors from '../../constant/colors';
-import { StatusColorMap } from './constant';
+import { StatusColorMap } from '../constant';
+import colors from '../constant/colors';
 
 type GetTagColorParam = {
   color?: string;
   status?: string;
-  index: number;
+  index?: number;
 };
 
 const isProEnumMap = (
@@ -20,7 +20,11 @@ const isProEnumMap = (
 /**
  * 颜色优先级：status > color > 默认
  */
-const getTagColor = ({ color, status, index }: GetTagColorParam): string => {
+const getTagColor = ({
+  color,
+  status,
+  index = 0,
+}: GetTagColorParam): string => {
   let tagColor: string;
   if (status && StatusColorMap[status]) {
     tagColor = StatusColorMap[status];

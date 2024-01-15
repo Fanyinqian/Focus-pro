@@ -4,7 +4,7 @@ import {
   ProSchemaValueEnumType,
 } from '@ant-design/pro-components';
 import colors from '@yq/focus-pro/constant/colors';
-import { Space, Tag } from 'antd';
+import { Badge, Space } from 'antd';
 import { FC } from 'react';
 import { getTagColor, isProEnumMap } from '../../utils';
 import styles from './index.module.less';
@@ -16,56 +16,47 @@ interface DisplayProps {
 }
 
 const Display: FC<DisplayProps> = ({ text, valueEnum, fieldProps }) => {
-  // console.log('text', text);
-  // console.log('valueEnum', valueEnum);
-  // console.log(typeof text);
   if (typeof text === 'string' || typeof text === 'number') {
     if (valueEnum) {
       // 取出text对应的valueEnum对象
-      const tag = (
+      const enumData = (
         isProEnumMap(valueEnum) ? valueEnum.get(text) : valueEnum[text]
       ) as ProSchemaValueEnumType;
-      const { status, color, text: tagText } = tag || {};
+
+      const { status, color, text: badText } = enumData || {};
       return (
-        <Tag color={getTagColor({ status, color, index: 0 })} {...fieldProps}>
-          {tagText || tag}
-        </Tag>
+        <Badge
+          text={badText || enumData}
+          color={getTagColor({ status, color, index: 0 })}
+          {...fieldProps}
+        />
       );
     } else {
-      return (
-        <Tag color={colors[0]} {...fieldProps}>
-          {text}
-        </Tag>
-      );
+      return <Badge text={text} color={colors[0]} {...fieldProps} />;
     }
   }
 
   if (Array.isArray(text)) {
     return (
-      <Space size={[0, 4]} className={styles.space}>
+      <Space size={[8, 4]} className={styles.space}>
         {text?.map((v, i) => {
           if (valueEnum) {
-            let tag = // valueEnum 有两种表现形式，一种是Map，一种是Object
+            let enumData = // valueEnum 有两种表现形式，一种是Map，一种是Object
             (
               isProEnumMap(valueEnum) ? valueEnum.get(v) : valueEnum[v]
             ) as ProSchemaValueEnumType;
-            const { status, color, text } = tag;
+            const { status, color, text } = enumData;
             return (
-              <Tag
+              <Badge
+                text={text}
                 color={getTagColor({ status, color, index: i })}
                 key={i}
                 {...fieldProps}
-              >
-                {text}
-              </Tag>
+              />
             );
           }
 
-          return (
-            <Tag color={colors[i]} key={i} {...fieldProps}>
-              {v}
-            </Tag>
-          );
+          return <Badge text={v} color={colors[i]} key={i} {...fieldProps} />;
         })}
       </Space>
     );

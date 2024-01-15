@@ -1,14 +1,12 @@
-import {
-  ProFieldFCMode,
-  ProFieldFCRenderProps,
-  ProForm,
-} from '@ant-design/pro-components';
+import { ProFieldFCMode, ProForm } from '@ant-design/pro-components';
 import { EditOrReadOnlyContext } from '@ant-design/pro-form/es/BaseForm/EditOrReadOnlyContext';
 import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { AutoComplete, AutoCompleteProps } from 'antd';
 import { FC, useContext, useState } from 'react';
 import Display from '../Display';
-export const Email: FC<ProFieldFCRenderProps & AutoCompleteProps> = (props) => {
+export const Email: FC<
+  { mode: ProFieldFCMode; fieldProps?: any } & AutoCompleteProps
+> = (props) => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>(
     [],
   );
@@ -46,6 +44,7 @@ const FormField: FC<ProFormFieldItemProps<AutoCompleteProps, any>> = (
 ) => {
   const mode = useContext(EditOrReadOnlyContext)?.mode as ProFieldFCMode;
   console.log('edit Mode', props);
+
   return (
     <ProForm.Item {...props}>
       <Email {...props.fieldProps} mode={mode}></Email>

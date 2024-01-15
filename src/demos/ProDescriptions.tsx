@@ -2,7 +2,7 @@
  * title: ProDescription
  */
 
-import { ZFProDescriptions } from '@yq/focus-pro';
+import { ZFProConfigProvider, ZFProDescriptions } from '@yq/focus-pro';
 
 const ProDescriptions = () => {
   const columns = [
@@ -30,6 +30,12 @@ const ProDescriptions = () => {
       dataIndex: 'email',
       valueType: 'email',
     },
+    {
+      key: 'link',
+      title: '链接',
+      dataIndex: 'link',
+      valueType: 'link',
+    },
   ];
 
   const dataSource = {
@@ -37,13 +43,25 @@ const ProDescriptions = () => {
     money: 100,
     slider: 10,
     email: 'yinqian@qq.com',
+    link: [
+      {
+        text: 'antd',
+        href: 'https://ant.design',
+      },
+      {
+        text: '知乎',
+        href: 'http://www.zhihu.com',
+      },
+    ],
   };
 
   return (
-    <ZFProDescriptions
-      dataSource={dataSource}
-      columns={columns}
-    ></ZFProDescriptions>
+    <ZFProConfigProvider>
+      <ZFProDescriptions
+        dataSource={dataSource}
+        columns={columns}
+      ></ZFProDescriptions>
+    </ZFProConfigProvider>
   );
 };
 

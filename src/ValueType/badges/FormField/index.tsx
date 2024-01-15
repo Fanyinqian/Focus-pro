@@ -5,26 +5,30 @@ import {
   ProFormSelectProps,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
-  ProSchemaValueEnumType,
 } from '@ant-design/pro-components';
 import { EditOrReadOnlyContext } from '@ant-design/pro-form/es/BaseForm/EditOrReadOnlyContext';
 import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
-import { Select, Tag } from 'antd';
+import { Select } from 'antd';
 import { FC, useContext } from 'react';
-import { getTagColor, isProEnumMap } from '../../utils';
 import Display from '../Display';
 import styles from './index.module.less';
 
-const Tags: FC<ProFieldFCRenderProps> = (props) => {
-  const { valueEnum, mode, value } = props;
+const Badges: FC<ProFieldFCRenderProps> = (props) => {
+  const { valueEnum, mode, value, fieldProps } = props;
   // 组件的 mode 有三种：read、edit、update
   if (mode === 'read') {
-    return <Display text={value} valueEnum={valueEnum}></Display>;
+    return (
+      <Display
+        text={value}
+        valueEnum={valueEnum}
+        fieldProps={fieldProps}
+      ></Display>
+    );
   }
   // Select 的 mode 有两种模式：mutiple 和 tags
-  const selectMode = props.fieldProps?.mode || '';
+  const selectMode = fieldProps?.mode || '';
   // 二者都可以多选，区别在于tags支持用户自由输入多选选项，mutiple仅支持从已有条目选择
-  const tagStyle = ['mutiple', 'tags'].includes(selectMode)
+  const badStyle = ['mutiple', 'tags'].includes(selectMode)
     ? {
         lineHeight: '18px',
       }
@@ -36,19 +40,14 @@ const Tags: FC<ProFieldFCRenderProps> = (props) => {
   const renderOption = () => {
     if (!valueEnum) return [];
 
-    return Object.keys(valueEnum).map((key, i) => {
-      const { text, color, status } = (
-        isProEnumMap(valueEnum) ? valueEnum.get(key) : valueEnum[key]
-      ) as ProSchemaValueEnumType;
-
+    return Object.keys(valueEnum).map((key) => {
       return (
         <Select.Option value={key} key={key} className={styles.option}>
-          <Tag
-            style={tagStyle}
-            color={getTagColor({ status, color, index: i })}
-          >
-            {text}
-          </Tag>
+          <Display
+            text={key}
+            valueEnum={valueEnum}
+            fieldProps={{ styles: badStyle }}
+          ></Display>
         </Select.Option>
       );
     });
@@ -66,11 +65,11 @@ const FormField: FC<
 
   return (
     <ProForm.Item {...props}>
-      <Tags valueEnum={props.valueEnum} mode={mode} text=""></Tags>
+      <Badges valueEnum={props.valueEnum} mode={mode} text="" />
     </ProForm.Item>
   );
 };
 
-export { Tags };
+export { Badges };
 
 export default FormField;

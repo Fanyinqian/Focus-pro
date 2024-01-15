@@ -4,7 +4,13 @@ import { Tags } from './FormField';
 
 const tags: ProRenderFieldPropsType = {
   // 只读模式：mode == read
-  render: (text, props) => <Display text={text} valueEnum={props?.valueEnum} />,
+  render: (text, props) => (
+    <Display
+      text={text}
+      valueEnum={props?.valueEnum}
+      fieldProps={props?.fieldProps}
+    />
+  ),
   // 编辑模式：mode == edit or update，包括 table 的搜索框
   renderFormItem: (text, props) => <Tags {...props} />,
 };
