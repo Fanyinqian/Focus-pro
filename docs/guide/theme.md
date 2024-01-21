@@ -2,6 +2,7 @@
 nav: 研发
 group:
   title: 定制主题
+  order: 3
 title: theme - 主题设计
 toc: content
 order: 1
