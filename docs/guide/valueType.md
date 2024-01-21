@@ -1,7 +1,8 @@
 ---
 nav: 组件
 group:
-  title: 架构设计
+  title: 核心灵魂
+  order: 2
 title: ValueType - 使用说明
 toc: content
 order: 2
@@ -28,13 +29,13 @@ focus-pro 在 ProComponents 的基础上，新增了更为丰富的 valueType �
 
 支持的参数与 [a](https://www.runoob.com/tags/tag-a.html) 标签一致。
 
-<code src='./demos/email/EmailTable.tsx'></code>
+<code src='@/ValueType/demos/email/EmailTable.tsx'></code>
 
 ## tags
 
 表单参数通过`fieldProps`传入，与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
 
-<code src='./demos/tags/TagsTable.tsx'></code>
+<code src='@/ValueType/demos/tags/TagsTable.tsx'></code>
 
 #### fieldProps
 
@@ -86,10 +87,10 @@ interface LinkProps {
 }
 ```
 
-<code src='./demos/link/LinkDescription.tsx'></code>
+<code src='@/ValueType/demos/link/LinkDescription.tsx'></code>
 
 ## badges
 
 表单参数与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
 
-<code src='./demos/badges/BadgeTable.tsx'></code>
+<code src='@/ValueType/demos/badges/BadgeTable.tsx'></code>

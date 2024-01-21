@@ -89,21 +89,21 @@ const Entry = () => (
 
 ### SchemaForm 场景
 
-<code src="../demos/SchemaForm.tsx"></code>
+<code src="@/demos/SchemaForm.tsx"></code>
 
 ### ProTable 场景
 
-<code src="../demos/ProTable.tsx"></code>
+<code src="@/demos/ProTable.tsx"></code>
 
 示例中用了 `date`、`money`、`slider`、`email` 四个 valueType，可以看到他们在 Form 中渲染出了不同的表单项以及在 Table 中渲染了不同的数据展示。
 
 ### ProDescription 场景
 
-<code src="../demos/ProDescriptions.tsx"></code>
+<code src="@/demos/ProDescriptions.tsx"></code>
 
 ### ProForm 场景
 
-<code src="../demos/ProForm.tsx"></code>
+<code src="@/demos/ProForm.tsx"></code>
 
 每个 valueType 对应一种数据展示，其实本质就每个 valueType 对应一个组件，比如 `text` 对应 `ProFormText` 组件，`money` 对应 `ProFormMoney` 组件，规律 `xxx` 对应 `ProFormXxx` 组件。
 如果 SchemaForm 能满足需求，不建议使用 ProForm 来开发表单，如果必须使用也做到 valueType 的收敛。
