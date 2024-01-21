@@ -1,6 +1,8 @@
 ---
 title: ZFProForm - 高级表单
-nav: 组件
+nav:
+  title: 组件
+  order: 1
 group:
   title: 数据录入
 toc: content

@@ -12,5 +12,5 @@
       "@yq/focus-pro/*": ["src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*"]
+  "include": [".dumirc.ts", "src/**/*", ".dumi/pages/theme-editor"]
 }
