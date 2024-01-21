@@ -24,6 +24,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         env: # 自定义环境变量
           ACCESS_TOKEN: ${{ secrets.PRIVATE_KEY }}
+          REPOSITORY_NAME: https://Fanyinqian.github.io/Focus-pro
+        with:
           BRANCH: gh-pages
           FOLDER: ../../dist
-          REPOSITORY_NAME: https://Fanyinqian.github.io/Focus-pro
+          
