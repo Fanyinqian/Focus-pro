@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest # 构建环境使用 ubuntu
     steps:
       - name: 迁出代码
-        uses: actions/checkout@master
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
       - name: 安装node.js

@@ -20,4 +20,6 @@ export default defineConfig({
     },
     // footer: false,
   },
+  base: '@yq/focus-pro',
+  publicPath: '@yq/focus-pro',
 });
