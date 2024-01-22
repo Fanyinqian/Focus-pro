@@ -27,4 +27,4 @@ jobs:
           REPOSITORY_NAME: https://Fanyinqian.github.io/Focus-pro
         with:
           BRANCH: gh-pages
-          PUBLISH_DIR: ./dist
+          FOLDER: .././dist
