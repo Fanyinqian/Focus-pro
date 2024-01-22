@@ -8,8 +8,8 @@ export default defineConfig({
   base: defaultPath,
   publicPath: `${baseUrl}/`,
   outputPath: 'docs-dist',
-  logo: '/images/pro.png',
-  favicons: ['/images/favicon.png'],
+  logo: `${baseUrl}/images/pro.png`,
+  favicons: [`${baseUrl}/images/favicon.png`],
   themeConfig: {
     name: 'focus pro',
     prefersColor: {
