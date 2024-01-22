@@ -15,18 +15,19 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: lts/*
-      - name: 下载依赖 打包项目
+      - name: 下载依赖 
         run: |
           npm install -g pnpm@8
           pnpm install
-      - name: 打包
-        run:
+      - name: 打包项目
+        run: |
           pnpm build
+          pnpm run docs:build
       - name: 将打包内容发布到 github page
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         env: # 自定义环境变量
-          ACCESS_TOKEN: ${{ secrets.PRIVATE_KEY }}
+          ACCESS_TOKEN: ${{ secrets.PRIVATE_KEY }} # ssh密钥
           REPOSITORY_NAME: https://Fanyinqian.github.io/Focus-pro
         with:
-          BRANCH: gh-pages
-          FOLDER: ./dist
+          BRANCH: gh-pages    # 部署分支
+          FOLDER: ./docs-dist # 部署文件为文档打包项目
