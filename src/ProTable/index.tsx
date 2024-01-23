@@ -1,4 +1,5 @@
 import { ProTable } from '@ant-design/pro-components';
+import ZFProConfigProvider from '../ProConfigProvider';
 import columnRender from './actions/columnRender';
 import { ZFProTableProps } from './actions/typing';
 
@@ -15,7 +16,11 @@ const ZFProTable = <
 
   const resColumns = columnRender<DataType, ValueType>({ columns });
 
-  return <ProTable {...restProps} columns={resColumns}></ProTable>;
+  return (
+    <ZFProConfigProvider>
+      <ProTable {...restProps} columns={resColumns}></ProTable>
+    </ZFProConfigProvider>
+  );
 };
 
 // 导出所有和table相关的ts类型

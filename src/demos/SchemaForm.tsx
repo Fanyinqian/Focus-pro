@@ -2,7 +2,7 @@
  * title: Schema 表单
  */
 
-import { ZFProConfigProvider, ZFSchemaForm } from '@yq/focus-pro';
+import { ZFProConfigProvider, ZFSchemaForm } from 'focus-pro';
 
 const SchemaForm = () => {
   const columns = [

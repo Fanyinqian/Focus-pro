@@ -78,7 +78,7 @@ valueType 是通用配置的核心，focus pro 会根据 valueType 来映射成�
 在应用的入口处进行全局化配置，ZFProConfigProvider 使用 React 的 context 特性，只需在应用外围包裹一次即可全局生效。
 
 ```jsx | pure
-import { ZFProConfigProvider } from '@yq/focus-pro';
+import { ZFProConfigProvider } from 'focus-pro';
 
 const Entry = () => (
   <ZFProConfigProvider>

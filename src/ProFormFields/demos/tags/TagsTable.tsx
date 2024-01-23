@@ -1,4 +1,4 @@
-import { ZFProForm, ZFProFormTags } from '@yq/focus-pro';
+import { ZFProForm, ZFProFormTags } from 'focus-pro';
 
 const ProTable = () => {
   const valueEnum = {

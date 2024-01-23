@@ -8,7 +8,7 @@ import {
   ZFProFormMoney,
   ZFProFormSlider,
   ZFProFormTags,
-} from '@yq/focus-pro';
+} from 'focus-pro';
 
 const ProForm = () => {
   return (

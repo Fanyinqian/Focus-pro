@@ -1,4 +1,4 @@
-import { ZFProConfigProvider, ZFProTable } from '@yq/focus-pro';
+import { ZFProConfigProvider, ZFProTable } from 'focus-pro';
 
 const BadageTable = () => {
   const columns = [

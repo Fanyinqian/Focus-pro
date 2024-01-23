@@ -2,7 +2,7 @@
  * title: ProTable
  */
 
-import { ZFProConfigProvider, ZFProTable } from '@yq/focus-pro';
+import { ZFProTable } from 'focus-pro';
 
 const ProTable = () => {
   const columns = [
@@ -111,13 +111,11 @@ const ProTable = () => {
   ];
 
   return (
-    <ZFProConfigProvider>
-      <ZFProTable
-        headerTitle="ZFProTable"
-        dataSource={dataSource}
-        columns={columns}
-      ></ZFProTable>
-    </ZFProConfigProvider>
+    <ZFProTable
+      headerTitle="ZFProTable"
+      dataSource={dataSource}
+      columns={columns}
+    ></ZFProTable>
   );
 };
 

@@ -3,8 +3,8 @@ import {
   ProSchemaValueEnumObj,
   ProSchemaValueEnumType,
 } from '@ant-design/pro-components';
-import colors from '@yq/focus-pro/constant/colors';
 import { Space, Tag } from 'antd';
+import colors from 'focus-pro/constant/colors';
 import { FC } from 'react';
 import { getTagColor, isProEnumMap } from '../../utils';
 import styles from './index.module.less';
@@ -46,10 +46,11 @@ const Display: FC<DisplayProps> = ({ text, valueEnum, fieldProps }) => {
         {text?.map((v, i) => {
           if (valueEnum) {
             let tag = // valueEnum 有两种表现形式，一种是Map，一种是Object
-            (
-              isProEnumMap(valueEnum) ? valueEnum.get(v) : valueEnum[v]
-            ) as ProSchemaValueEnumType;
-            const { status, color, text } = tag;
+              (
+                isProEnumMap(valueEnum) ? valueEnum.get(v) : valueEnum[v]
+              ) as ProSchemaValueEnumType;
+
+            const { status, color, text } = tag || {};
             return (
               <Tag
                 color={getTagColor({ status, color, index: i })}

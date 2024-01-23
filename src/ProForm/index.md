@@ -13,7 +13,7 @@ toc: content
 <font color="#86909C">ZFProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。</font>
 
 ```jsx| pure
-import { ZFProForm } from '@yq/focus-pro'
+import { ZFProForm } from 'focus-pro'
 ```
 
 ZFProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
@@ -199,12 +199,12 @@ ZFProFormInstance 与 antd 的 form 相比增加了一些能力。
 /**
  * title: formRef 的使用
  */
-import type { ZFProFormInstance } from '@yq/focus-pro';
+import type { ZFProFormInstance } from 'focus-pro';
 import {
   ZFProForm,
   ZFProFormDatePicker,
   ZFProFormText,
-} from '@yq/focus-pro';
+} from 'focus-pro';
 import { Button, message } from 'antd';
 import moment from 'dayjs';
 import { useRef } from 'react';

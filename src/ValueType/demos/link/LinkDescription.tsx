@@ -1,4 +1,4 @@
-import { ZFProConfigProvider, ZFProDescriptions } from '@yq/focus-pro';
+import { ZFProConfigProvider, ZFProDescriptions } from 'focus-pro';
 
 const ProDescriptions = () => {
   const columns = [

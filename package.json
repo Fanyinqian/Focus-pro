@@ -1,6 +1,6 @@
 {
-  "name": "@yq/focus-pro",
-  "version": "0.0.1",
+  "name": "focus-pro",
+  "version": "0.1.0",
   "description": "A react library developed with dumi",
   "license": "MIT",
   "main": "dist/index.js",

@@ -1,5 +1,5 @@
 import { LinkOutlined } from '@ant-design/icons';
-import { ZFProColumns, ZFProConfigProvider, ZFProTable } from '@yq/focus-pro';
+import { ZFProColumns, ZFProConfigProvider, ZFProTable } from 'focus-pro';
 
 type DatasourceType = {
   id: number;
