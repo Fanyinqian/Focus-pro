@@ -1,9 +1,9 @@
 ---
-nav: 组件
+nav: 研发
 group:
   title: 核心灵魂
-  order: 2
-title: ValueType - 使用说明
+  order: 3
+title: ValueType - 使用指南
 toc: content
 order: 2
 description: focus-pro 新增的 valueType 使用文档
