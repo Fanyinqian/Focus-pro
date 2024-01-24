@@ -4,7 +4,7 @@ hero:
   description: |
     🏆 让中后台开发更简单 
     <br />
-    <small style="opacity: 0.7;"> usc 文档请访问 <a href="https://usc.in.zhihu.com" style="color: #1677ff;">usc.in.zhihu.com</a></small>
+    <small style="opacity: 0.7;"> focus-pro 文档请访问 <a href="#" style="color: #1677ff;"></a></small>
   actions:
     - text: 快速开始
       link: /guide

@@ -18,7 +18,7 @@ ProComponent 的增强版，在包括了 ProComponent 所有功能的基础上�
 
 ## 使用
 
-```js | pure{1}
+```jsx | pure
 import { ZFProTable } from 'focus-pro';
 
 export default () => <ZFProTable headerTitle="高级表格" columns={[]} />;
