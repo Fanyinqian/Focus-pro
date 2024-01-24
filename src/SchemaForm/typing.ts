@@ -16,9 +16,9 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-import type { FormInstance, FormProps } from 'antd';
+import type { FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import { ZFValueType } from '../ValueType';
+// import { ZFValueType } from '../ValueType';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -116,16 +116,13 @@ export type ZFProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     order?: number;
     /** 嵌套子项 */
     columns?:
-      | ZFProFormColumnsType<T, ValueType | FormFieldType | ZFValueType>[]
+      | ZFProFormColumnsType<T, ValueType | FormFieldType | any>[]
       | ((
           values: any,
-        ) => ZFProFormColumnsType<
-          T,
-          ValueType | FormFieldType | ZFValueType
-        >[]);
+        ) => ZFProFormColumnsType<T, ValueType | FormFieldType | any>[]);
   },
   ProSchemaComponentTypes,
-  ValueType | FormFieldType | ZFValueType
+  ValueType | FormFieldType | any
 >;
 
 export type ZFFormSchema<T = Record<string, any>, ValueType = 'text'> = {
@@ -148,28 +145,3 @@ export type ZFFormSchema<T = Record<string, any>, ValueType = 'text'> = {
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T, ValueType> &
   CommonFormProps<T>;
-
-export type ProFormRenderValueTypeItem<T, ValueType> = {
-  label: any;
-  getFieldProps?: () => any;
-  getFormItemProps?: () => any;
-} & ZFProFormColumnsType<T, ValueType>;
-
-export type ProFormRenderValueTypeHelpers<T, ValueType> = {
-  originItem: ZFProFormColumnsType<T, ValueType>;
-  type: ProSchemaComponentTypes;
-  formRef: React.MutableRefObject<FormInstance<any> | undefined>;
-  genItems: (items: ZFProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
-} & Pick<ZFFormSchema<T, ValueType>, 'action'>;
-
-export type ItemType<T, ValueType> = Omit<
-  ProFormRenderValueTypeItem<T, ValueType>,
-  'key'
-> & {
-  key?: React.Key | React.Key[];
-};
-
-export type ProSchemaRenderValueTypeFunction<T = any, ValueType = any> = (
-  item: ItemType<T, ValueType>,
-  helpers: ProFormRenderValueTypeHelpers<T, ValueType>,
-) => React.ReactNode;
