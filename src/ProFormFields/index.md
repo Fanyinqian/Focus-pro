@@ -56,7 +56,6 @@ const ZFProFormText = (props) => {
 | ZFProFormMoney                                                                   | 通用金额输入组件                                                                                            |
 | [ZFProFormSegmented](https://ant.design/components/segmented-cn/)                | 分段控制器                                                                                                  |
 | ZFProFormEmail                                                                   | 由于输入邮箱                                                                                                |
-|                                                                                  |
 | [ZFProFormTags](https://ant.design/components/select-cn/)                        | 标签输入                                                                                                    |
 
 ### ZFProFormTags

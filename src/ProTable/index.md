@@ -7,101 +7,292 @@ toc: content
 order: 1
 ---
 
-## valueType
+# ZFProTable - 高级表格
 
-| valueType          | 说明                         |
-| ------------------ | ---------------------------- |
-| `text`             | 文本框                       |
-| `password`         | 密码输入框                   |
-| `money`            | 金额输入框                   |
-| `index`            | 索引                         |
-| `indexBorder`      | 索引带边框                   |
-| `option`           | 下拉选择                     |
-| `textarea`         | 文本域                       |
-| `date`             | 日期                         |
-| `dateWeek`         | 周                           |
-| `dateMonth`        | 月                           |
-| `dateQuarter`      | 季度输入                     |
-| `dateYear`         | 年份输入                     |
-| `dateTime`         | 日期时间                     |
-| `fromNow`          | 相对于当前时间               |
-| `dateRange`        | 日期区间                     |
-| `dateTimeRange`    | 日期时间区间                 |
-| `dateWeekRange`    | 周范围选择器                 |
-| `dateMonthRange`   | 月范围选择器                 |
-| `dateQuarterRange` | 周范围选择器                 |
-| `dateYearRange`    | 年范围选择器                 |
-| `time`             | 时间                         |
-| `timeRange`        | 时间区间                     |
-| `select`           | 下拉框                       |
-| `checkbox`         | 多选框                       |
-| `rate`             | 星级组件                     |
-| `slider`           | 滑动条                       |
-| `radio`            | 单选框                       |
-| `radioButton`      | 按钮单选框                   |
-| `progress`         | 进度条                       |
-| `percent`          | 百分比组件                   |
-| `digit`            | 数字输入框                   |
-| `digitRange`       | 数字范围输入框               |
-| `second`           | 秒格式化                     |
-| `code`             | 代码框                       |
-| `jsonCode`         | 代码框，但是带了 json 格式化 |
-| `avatar`           | 头像                         |
-| `switch`           | 开关                         |
-| `image`            | 图片                         |
-| `cascader`         | 级联选择器                   |
-| `treeSelect`       | 树形下拉框                   |
-| `color`            | 颜色选择器                   |
-| `segmented`        | 分段器                       |
-| `group`            | 分组                         |
-| `formList`         | 表单列表                     |
-| `formSet`          | 表单集合                     |
-| `divider`          | 分割线                       |
-| `dependency`       | 级联组件                     |
+ZFProTable 的诞生是为了解决项目中需要写很多 table 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。这些封装可以简单的分类为预设行为与预设逻辑。
 
-[TS 类型详情](https://github.com/ant-design/pro-components/blob/eda3bf6b2ad4d939d1f8091f925841682b9dd788/packages/utils/src/typing.ts#L36)
+依托于 ZFProForm 的能力，ZFProForm 拥有多种形态，可以切换查询表单类型，设置变形成为一个简单的 Form 表单，执行新建等功能。
 
-## ZFProTableProps
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
 
-| 属性               | 描述                                                                 | 类型                                                                                                                                                     | 默认值                                               |
-| ------------------ | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| request            | 获取 `dataSource` 的方法                                             | `(params?: {pageSize,current},sort,filter) => {data,success,total}`                                                                                      | -                                                    |
-| params             | 用于 `request` 查询的额外参数，一旦变化会触发重新加载                | `object`                                                                                                                                                 | -                                                    |
-| postData           | 对通过 `request` 获取的数据进行处理                                  | `(data: T[]) => T[]`                                                                                                                                     | -                                                    |
-| defaultData        | 默认的数据                                                           | `T[]`                                                                                                                                                    | -                                                    |
-| dataSource         | Table 的数据，protable 推荐使用 request 来加载                       | `T[]`                                                                                                                                                    | -                                                    |
-| onDataSourceChange | Table 的数据发生改变时触发                                           | `(dataSource: T[]) => void`                                                                                                                              | -                                                    |
-| actionRef          | Table action 的引用，便于自定义触发                                  | `MutableRefObject<ActionType>`                                                                                                                           | -                                                    |
-| formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                   | `MutableRefObject<FormInstance>`                                                                                                                         | -                                                    |
-| toolBarRender      | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right           | `(action) => ReactNode[]`                                                                                                                                | -                                                    |
-| onLoad             | 数据加载完成后触发,会多次触发                                        | `(dataSource: T[]) => void`                                                                                                                              | -                                                    |
-| onLoadingChange    | loading 被修改时触发，一般是网络请求导致的                           | `(loading:boolean)=>void`                                                                                                                                | -                                                    |
-| onRequestError     | 数据加载失败时触发                                                   | `(error) => void`                                                                                                                                        | -                                                    |
-| tableClassName     | 封装的 table 的 className                                            | `string`                                                                                                                                                 | -                                                    |
-| tableStyle         | 封装的 table 的 style                                                | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html)                                                                                  | -                                                    |
-| options            | table 工具栏，设为 false 时不显示.传入 function 会点击时触发         | `{{ density?: boolean, fullScreen: boolean \| function, reload: boolean \| function, setting: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, setting: true }` |
-| search             | 是否显示搜索表单，传入对象时为搜索表单的配置                         | `false` \| [SearchConfig](#search-搜索表单)                                                                                                              | -                                                    |
-| defaultSize        | 默认的 size                                                          | SizeType                                                                                                                                                 | -                                                    |
-| dateFormatter      | 转化 moment 格式数据为特定类型，false 不做转化                       | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false`                                                          | `"string"`                                           |
-| beforeSearchSubmit | 搜索之前进行一些修改                                                 | `(params:T)=>T`                                                                                                                                          | -                                                    |
-| onSizeChange       | table 尺寸发生改变                                                   | `(size: 'default' \| 'middle' \| 'small') => void`                                                                                                       | -                                                    |
-| type               | pro-table 类型                                                       | `"form"`                                                                                                                                                 | -                                                    |
-| form               | antd form 的配置                                                     | [FormProps](https://ant.design/components/form-cn/#API)                                                                                                  | -                                                    |
-| onSubmit           | 提交表单时触发                                                       | `(params: U) => void`                                                                                                                                    | -                                                    |
-| onReset            | 重置表单时触发                                                       | `() => void`                                                                                                                                             | -                                                    |
-| columnEmptyText    | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能                | `string` \| `false`                                                                                                                                      | false                                                |
-| tableRender        | 自定义渲染表格函数                                                   | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode`                                                                                                | -                                                    |
-| toolbar            | 透传 `ListToolBar` 配置项                                            | [ListToolBarProps](#listtoolbarprops)                                                                                                                    | -                                                    |
-| tableExtraRender   | 自定义表格的主体函数                                                 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;`                                                                                            | -                                                    |
-| manualRequest      | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单           | `boolean`                                                                                                                                                | false                                                |
-| editable           | 可编辑表格的相关配置                                                 | [TableRowEditable](/components/editable-table#editable-编辑行配置)                                                                                       | -                                                    |
-| cardBordered       | Table 和 Search 外围 Card 组件的边框                                 | `boolean \| {search?: boolean, table?: boolean}`                                                                                                         | false                                                |
-| debounceTime       | 防抖时间                                                             | `number`                                                                                                                                                 | 10                                                   |
-| revalidateOnFocus  | 窗口聚焦时自动重新请求                                               | `boolean`                                                                                                                                                | `true`                                               |
-| columnsState       | 受控的列状态，可以操作显示隐藏                                       | `ColumnStateType`                                                                                                                                        | -                                                    |
-| ErrorBoundary      | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode`                                                                                                                                              | 内置 ErrorBoundary                                   |
+若您是内网用户，欢迎使用我们的 [TechUI Studio](https://techui-studio.antfin-inc.com/) 可视化配置生成初始代码。
 
-## Columns
+## 何时使用
+
+当你的表格需要与服务端进行交互或者需要多种单元格样式时，ZFProTable 是不二选择。
+
+## API
+
+ZFProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，并且封装了一些行为。这里只列出与 antd Table 不同的 api。
+
+### request
+
+`request` 是 ZFProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个例子：
+
+```tsx | pure
+<ZFProTable<DataType, Params>
+  // params 是需要自带的参数
+  // 这个参数优先级更高，会覆盖查询表单的参数
+  params={params}
+  request={async (
+    // 第一个参数 params 查询表单和 params 参数的结合
+    // 第一个参数中一定会有 pageSize 和  current ，这两个参数是 antd 的规范
+    params: T & {
+      pageSize: number;
+      current: number;
+    },
+    sort,
+    filter,
+  ) => {
+    // 这里需要返回一个 Promise,在返回之前你可以进行数据转化
+    // 如果需要转化参数可以在这里进行修改
+    const msg = await myQuery({
+      page: params.current,
+      pageSize: params.pageSize,
+    });
+    return {
+      data: msg.result,
+      // success 请返回 true，
+      // 不然 table 会停止解析数据，即使有数据
+      success: boolean,
+      // 不传会使用 data 的长度，如果是分页一定要传
+      total: number,
+    };
+  }}
+/>
+```
+
+列配置中也支持 request，但是只有几种 [valueType](/components/schema#valuetype) 支持。
+
+### ZFProTable
+
+| 属性               | 描述                                                                 | 类型                                                                                                                                                                                                                     | 默认值                                               |
+| ------------------ | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| request            | 获取 `dataSource` 的方法                                             | `(params?: {pageSize,current},sort,filter) => {data,success,total}`                                                                                                                                                      | -                                                    |
+| params             | 用于 `request` 查询的额外参数，一旦变化会触发重新加载                | `object`                                                                                                                                                                                                                 | -                                                    |
+| postData           | 对通过 `request` 获取的数据进行处理                                  | `(data: T[]) => T[]`                                                                                                                                                                                                     | -                                                    |
+| defaultData        | 默认的数据                                                           | `T[]`                                                                                                                                                                                                                    | -                                                    |
+| dataSource         | Table 的数据，protable 推荐使用 request 来加载                       | `T[]`                                                                                                                                                                                                                    | -                                                    |
+| onDataSourceChange | Table 的数据发生改变时触发                                           | `(dataSource: T[]) => void`                                                                                                                                                                                              | -                                                    |
+| actionRef          | Table action 的引用，便于自定义触发                                  | `MutableRefObject<ActionType>`                                                                                                                                                                                           | -                                                    |
+| formRef            | 可以获取到查询表单的 form 实例，用于一些灵活的配置                   | `MutableRefObject<FormInstance>`                                                                                                                                                                                         | -                                                    |
+| toolBarRender      | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right           | `(action) => ReactNode[]`                                                                                                                                                                                                | -                                                    |
+| onLoad             | 数据加载完成后触发,会多次触发                                        | `(dataSource: T[]) => void`                                                                                                                                                                                              | -                                                    |
+| onLoadingChange    | loading 被修改时触发，一般是网络请求导致的                           | `(loading:boolean)=>void`                                                                                                                                                                                                | -                                                    |
+| onRequestError     | 数据加载失败时触发                                                   | `(error) => void`                                                                                                                                                                                                        | -                                                    |
+| tableClassName     | 封装的 table 的 className                                            | `string`                                                                                                                                                                                                                 | -                                                    |
+| tableStyle         | 封装的 table 的 style                                                | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html)                                                                                                                                                  | -                                                    |
+| options            | table 工具栏，设为 false 时不显示.传入 function 会点击时触发         | `{{ density?: boolean, fullScreen?: boolean \| function, reload?: boolean \| function, reloadIcon?: React.ReactNode, densityIcon?: React.ReactNode, setting?: boolean \|` [SettingOptionType](#菜单栏-options-配置) `}}` | `{ fullScreen: false, reload: true, setting: true }` |
+| search             | 是否显示搜索表单，传入对象时为搜索表单的配置                         | `false` \| [SearchConfig](#search-搜索表单)                                                                                                                                                                              | -                                                    |
+| defaultSize        | 默认的 size                                                          | SizeType                                                                                                                                                                                                                 | -                                                    |
+| dateFormatter      | 转化 moment 格式数据为特定类型，false 不做转化                       | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false`                                                                                                                          | `"string"`                                           |
+| beforeSearchSubmit | 搜索之前进行一些修改                                                 | `(params:T)=>T`                                                                                                                                                                                                          | -                                                    |
+| onSizeChange       | table 尺寸发生改变                                                   | `(size: 'default' \| 'middle' \| 'small') => void`                                                                                                                                                                       | -                                                    |
+| type               | pro-table 类型                                                       | `"form"`                                                                                                                                                                                                                 | -                                                    |
+| form               | antd form 的配置                                                     | [FormProps](https://ant.design/components/form-cn/#API)                                                                                                                                                                  | -                                                    |
+| onSubmit           | 提交表单时触发                                                       | `(params: U) => void`                                                                                                                                                                                                    | -                                                    |
+| onReset            | 重置表单时触发                                                       | `() => void`                                                                                                                                                                                                             | -                                                    |
+| columnEmptyText    | 空值时的显示，不设置时显示 `-`， false 可以关闭此功能                | `string` \| `false`                                                                                                                                                                                                      | false                                                |
+| tableRender        | 自定义渲染表格函数                                                   | `(props,dom,domList:{ toolbar,alert,table}) => ReactNode`                                                                                                                                                                | -                                                    |
+| toolbar            | 透传 `ListToolBar` 配置项                                            | [ListToolBarProps](#listtoolbarprops)                                                                                                                                                                                    | -                                                    |
+| tableExtraRender   | 自定义表格的主体函数                                                 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;`                                                                                                                                                            | -                                                    |
+| manualRequest      | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单           | `boolean`                                                                                                                                                                                                                | false                                                |
+| editable           | 可编辑表格的相关配置                                                 | [TableRowEditable](/components/editable-table#editable-编辑行配置)                                                                                                                                                       | -                                                    |
+| cardBordered       | Table 和 Search 外围 Card 组件的边框                                 | `boolean \| {search?: boolean, table?: boolean}`                                                                                                                                                                         | false                                                |
+| ghost              | 幽灵模式，即是否取消表格区域的 padding                               | `boolean`                                                                                                                                                                                                                | false                                                |
+| debounceTime       | 防抖时间                                                             | `number`                                                                                                                                                                                                                 | 10                                                   |
+| revalidateOnFocus  | 窗口聚焦时自动重新请求                                               | `boolean`                                                                                                                                                                                                                | `true`                                               |
+| columnsState       | 受控的列状态，可以操作显示隐藏                                       | `ColumnStateType`                                                                                                                                                                                                        | -                                                    |
+| ErrorBoundary      | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode`                                                                                                                                                                                                              | 内置 ErrorBoundary                                   |
+
+#### RecordCreator
+
+| 属性             | 描述                                                                | 类型              | 默认值   |
+| ---------------- | ------------------------------------------------------------------- | ----------------- | -------- |
+| record           | 需要新增的行数据，一般来说包含唯一 key                              | `T`               | `{}`     |
+| position         | 行增加在哪里，开始或者末尾                                          | `top` \| `bottom` | `bottom` |
+| (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps       | —        |
+
+#### ColumnStateType
+
+| 属性            | 描述                                                                                            | 类型                                         | 默认值 |
+| --------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------- | ------ |
+| defaultValue    | 列状态的默认值，只有初次生效，並用于重置使用                                                    | `Record<string, ColumnsState>;`              | -      |
+| value           | 列状态的值，支持受控模式                                                                        | `Record<string, ColumnsState>;`              | -      |
+| onChange        | 列状态的值发生改变之后触发                                                                      | `(value:Record<string, ColumnsState>)=>void` | -      |
+| persistenceKey  | 持久化列的 key，用于判断是否是同一个 table                                                      | `string \| number`                           | -      |
+| persistenceType | 持久化列的类类型， localStorage 设置在关闭浏览器后也是存在的，sessionStorage 关闭浏览器后会丢失 | `localStorage \| sessionStorage`             | -      |
+
+#### Search 搜索表单
+
+| 属性             | 描述                         | 类型                                                              | 默认值           |
+| ---------------- | ---------------------------- | ----------------------------------------------------------------- | ---------------- |
+| filterType       | 过滤表单类型                 | `'query'` \| `'light'`                                            | `'query'`        |
+| searchText       | 查询按钮的文本               | `string`                                                          | 查询             |
+| resetText        | 重置按钮的文本               | `string`                                                          | 重置             |
+| submitText       | 提交按钮的文本               | `string`                                                          | 提交             |
+| labelWidth       | 标签的宽度                   | `'number'` \| `'auto'`                                            | 80               |
+| span             | 配置查询表单的列数           | `'number'` \| [`'ColConfig'`](#ColConfig)                         | defaultColConfig |
+| className        | 封装的搜索 Form 的 className | `string`                                                          | -                |
+| collapseRender   | 收起按钮的 render            | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | -                |
+| defaultCollapsed | 默认是否收起                 | `boolean`                                                         | `true`           |
+| collapsed        | 是否收起                     | `boolean`                                                         | -                |
+| onCollapse       | 收起按钮的事件               | `(collapsed: boolean) => void;`                                   | -                |
+| optionRender     | 自定义操作栏                 | `((searchConfig,formProps,dom) => ReactNode[])`\|`false`          | -                |
+| showHiddenNum    | 是否显示收起之后显示隐藏个数 | `boolean`                                                         | `false`          |
+
+#### ColConfig
+
+```tsx | pure
+const defaultColConfig = {
+  xs: 24,
+  sm: 24,
+  md: 12,
+  lg: 12,
+  xl: 8,
+  xxl: 6,
+};
+```
+
+#### 菜单栏 options 配置
+
+```tsx | pure
+export type OptionsType =
+  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
+  | boolean;
+
+export type OptionConfig = {
+  density?: boolean;
+  fullScreen?: OptionsType;
+  reload?: OptionsType;
+  setting?: boolean | SettingOptionType;
+  search?: (OptionSearchProps & { name?: string }) | boolean;
+  reloadIcon?: React.ReactNode;
+  densityIcon?: React.ReactNode;
+};
+
+export type SettingOptionType = {
+  draggable?: boolean;
+  checkable?: boolean;
+  checkedReset?: boolean;
+  listsHeight?: number;
+  extra?: React.ReactNode;
+  children?: React.ReactNode;
+  settingIcon?: React.ReactNode;
+};
+```
+
+#### ActionRef 手动触发
+
+有时我们要手动触发 table 的 reload 等操作，可以使用 actionRef，可编辑表格也提供了一些操作来帮助我们更快的实现需求。
+
+```tsx | pure
+interface ActionType {
+  reload: (resetPageIndex?: boolean) => void;
+  reloadAndRest: () => void;
+  reset: () => void;
+  clearSelected?: () => void;
+  startEditable: (rowKey: Key) => boolean;
+  cancelEditable: (rowKey: Key) => boolean;
+}
+
+const ref = useRef<ActionType>();
+
+<ZFProTable actionRef={ref} />;
+
+// 刷新
+ref.current.reload();
+
+// 刷新并清空,页码也会重置，不包括表单
+ref.current.reloadAndRest();
+
+// 重置到默认值，包括表单
+ref.current.reset();
+
+// 清空选中项
+ref.current.clearSelected();
+
+// 开始编辑
+ref.current.startEditable(rowKey);
+
+// 结束编辑
+ref.current.cancelEditable(rowKey);
+```
+
+### 同步 query
+
+同步 query 模式默认开启，如需关闭设置 `syncToUrl: false`
+
+```tsx | pure
+<ZFProTable<GithubIssueItem, any>
+  columns={columns}
+  dataSource={dataSource}
+  // 关闭同步 query
+  form={{ syncToUrl: false }}
+/>
+```
+
+#### toState
+
+```tsx | pure
+/**
+ * @param queryValue 当前 dataIndex 对应 url query 中的值
+ * @param allQueryValue url query 中的所有值
+ */
+function(queryValue: any, allQueryValue: Record<string, any>)
+```
+
+某些时候 url query 中的值并不能直接原样同步至对应搜索的数据字段，比如：数值/日期/数组/对象 等特殊类型的字段。举个例子：
+
+```tsx | pure
+{
+    title: '锁定状态',
+    dataIndex: 'locked',
+    valueType: 'select',
+    syncQuery: {
+      toState: (queryValue) => queryValue === 'true',
+    },
+    valueEnum: new Map([
+      [
+        false,
+        {
+          text: '否',
+        },
+      ],
+      [
+        true,
+        {
+          text: '是',
+        },
+      ],
+    ]),
+  },
+```
+
+比如上面的锁定状态 column 配置，它会生成一个基于数值 value 的下拉选择器，而 url query 中该字段的结果是字符串，所以可以通过上面的 toState 来转换。
+
+#### toQuery
+
+```tsx | pure
+/**
+ * @param stateValue 当前 dataIndex 对应 form 表单中的值
+ * @param allStateValue form 表单中的所有值
+ */
+function(stateValue: any, allStateValue: Record<string, any>)
+```
+
+同样地，某些时候搜索数据字段中的值也不能直接原样同步至 url query，用和 toState 类似的办法来转换吧！
+
+```tsx | pure
+{
+  syncQuery: {
+    toQuery: (stateValue) => '转成你想要的结果';
+  }
+}
+```
+
+### Columns 列定义
 
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
@@ -128,15 +319,264 @@ order: 1
 | hideInForm                             | 在 Form 中不展示此列                                                                                                                           | `boolean`                                                                                             | -      |
 | hideInDescriptions                     | 在 Descriptions 中不展示此列                                                                                                                   | `boolean`                                                                                             | -      |
 | filters                                | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成                                                                                      | `boolean` \| `object[]`                                                                               | false  |
-| onFilter                               | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选                                                                              | `(value, record) => boolean` \| `false`                                                               | false  |
+| onFilter                               | 筛选表单，为 true 时使用 ZFProTable 自带的，为 false 时关闭本地筛选                                                                            | `(value, record) => boolean` \| `false`                                                               | false  |
 | request                                | 从服务器请求枚举                                                                                                                               | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)                | -      |
 | initialValue                           | 查询表单项初始值                                                                                                                               | `any`                                                                                                 | -      |
 | disable                                | 列设置中`disabled`的状态                                                                                                                       | `boolean` \| `{ checkbox: boolean; }`                                                                 | -      |
 
-### 测试示例
+### valueType 值类型
 
-<code src="./demo01.tsx"></code>
+ZFProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个 [`valueType`](/components/schema#valuetype) 即可展示格式化响应的数据。
 
-### Options 测试
+### 批量操作
 
-<code src="./OptionBaseTable.tsx"></code>
+与 antd 相同，批量操作需要设置 `rowSelection` 来开启，与 antd 不同的是，pro-table 提供了一个 alert 用于承载一些信息。你可以通过 `tableAlertRender`和 `tableAlertOptionRender` 来对它进行自定义。设置或者返回 false 即可关闭。
+
+| 属性                   | 描述                                                       | 类型                                                                                                | 默认值 |
+| ---------------------- | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ------ |
+| alwaysShowAlert        | 总是展示 alert，默认无选择不展示（`rowSelection`内置属性） | `boolean`                                                                                           | -      |
+| tableAlertRender       | 自定义批量操作工具栏左侧信息区域, false 时不显示           | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | -      |
+| tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示           | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | -      |
+
+### 搜索表单
+
+ZFProTable 会根据列来生成一个 Form，用于筛选列表数据，最后的值会根据通过 `request` 的第一个参数返回，看起来就像。
+
+```jsx | pure
+<ZFProTable request={(params,sort,filter)=>{ all params}}>
+```
+
+按照规范，table 的表单不需要任何的必选参数，所有点击搜索和重置都会触发 `request`来发起一次查询。
+
+Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请查看[通用配置](/components/schema#valuetype)。
+
+> valueType 为 index indexBorder option 和没有 dataIndex 和 key 的列将会忽略。
+
+### 列表工具栏
+
+用于自定义表格的工具栏部分。
+
+#### ListToolBarProps
+
+列表和表格的工具栏配置属性
+
+| 参数         | 说明                                           | 类型                         | 默认值  |
+| ------------ | ---------------------------------------------- | ---------------------------- | ------- |
+| title        | 标题                                           | `ReactNode`                  | -       |
+| subTitle     | 子标题                                         | `ReactNode`                  | -       |
+| description  | 描述                                           | `ReactNode`                  | -       |
+| search       | 查询区                                         | `ReactNode` \| `SearchProps` | -       |
+| actions      | 操作区                                         | `ReactNode[]`                | -       |
+| settings     | 设置区                                         | `(ReactNode \| Setting)[]`   | -       |
+| filter       | 过滤区，通常配合 `LightFilter` 使用            | `ReactNode`                  | -       |
+| multipleLine | 是否多行展示                                   | `boolean`                    | `false` |
+| menu         | 菜单配置                                       | `ListToolBarMenu`            | -       |
+| tabs         | 标签页配置，仅当 `multipleLine` 为 true 时有效 | `ListToolBarTabs`            | -       |
+
+SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#Input.Search) 的属性。
+
+#### Setting
+
+| 参数    | 说明         | 类型                  | 默认值 |
+| ------- | ------------ | --------------------- | ------ |
+| icon    | 图标         | `ReactNode`           | -      |
+| tooltip | tooltip 描述 | `string`              | -      |
+| key     | 操作唯一标识 | `string`              | -      |
+| onClick | 设置被触发   | `(key: string)=>void` | -      |
+
+#### ListToolBarMenu
+
+| 参数      | 说明           | 类型                                  | 默认值   |
+| --------- | -------------- | ------------------------------------- | -------- |
+| type      | 类型           | `inline` \| `dropdown` \| `tab`       | `inline` |
+| activeKey | 当前值         | `string`                              | -        |
+| items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -        |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -        |
+
+#### ListToolBarTabs
+
+| 参数      | 说明           | 类型                                | 默认值 |
+| --------- | -------------- | ----------------------------------- | ------ |
+| activeKey | 当前选中项     | `string`                            | -      |
+| items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      |
+| onChange  | 切换菜单的回调 | `(activeKey)=>void`                 | -      |
+
+#### TableDropdown
+
+| 参数           | 说明                                                                  | 类型        | 默认值 |
+| -------------- | --------------------------------------------------------------------- | ----------- | ------ |
+| key            | 唯一标志                                                              | `string`    | -      |
+| name           | 内容                                                                  | `ReactNode` | -      |
+| (...Menu.Item) | antd 的 [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) | Menu.Item   | -      |
+
+### 操作类型 action
+
+表格支持操作类型 action
+
+##### TypeScript 定义
+
+```ts
+import { ProColumns, ProTableProps } from '@ant-design/pro-components';
+import { SwitchProps, PopconfirmProps } from 'antd';
+import React from 'react';
+import { LinkProps } from 'react-router-dom';
+
+export type ParamsType = Record<string, any>;
+
+type ActionBaseAttr<DataType> = {
+  useDisable?: (v: DataType) => boolean;
+  text?: React.ReactNode;
+  tooltip?: React.ReactNode;
+  useHide?: (v: DataType) => boolean;
+  collapsed?: boolean;
+  useText?: (v: DataType) => boolean;
+};
+
+export type ActionEditAttr<DataType> = {
+  type: 'Edit';
+  onEdit: (record: DataType) => void;
+} & ActionBaseAttr<DataType>;
+
+export type ActionDeleteAttr<DataType> = {
+  type: 'Delete';
+  onDelete: (record: DataType) => void;
+} & ActionBaseAttr<DataType>;
+
+export type ActionNavigateAttr<DataType> = {
+  type: 'Navigate';
+  target?: '_blank' | '_parent' | '_self' | '_top';
+  useNavigate: (record: DataType) => LinkProps | string;
+} & ActionBaseAttr<DataType>;
+
+export type ActionClickAttr<DataType> = {
+  type: 'Click';
+  onClick: (record: DataType) => void;
+} & ActionBaseAttr<DataType>;
+
+export type ActionConfirmAttr<DataType> = {
+  type: 'Confirm';
+  onConfirm: (record: DataType) => void;
+  useTitle: (record: DataType) => React.ReactNode;
+} & ActionBaseAttr<DataType> &
+  Omit<PopconfirmProps, 'disabled' | 'title'>;
+
+export type ActionSwitchAttr<DataType> = {
+  type: 'Switch';
+  onChange?: (checked: boolean, record: DataType) => void;
+  onClick?: (checked: boolean, record: DataType) => void;
+} & ActionBaseAttr<DataType> &
+  Omit<SwitchProps, 'disabled' | 'defaultChecked' | 'onChange' | 'onClick'>;
+
+export type ActionConfig<DataType> =
+  | ActionEditAttr<DataType>
+  | ActionDeleteAttr<DataType>
+  | ActionNavigateAttr<DataType>
+  | ActionClickAttr<DataType>
+  | ActionSwitchAttr<DataType>
+  | ActionConfirmAttr<DataType>;
+
+export type ActionFn<DataType> = (record: DataType) => React.ReactElement;
+
+export type Action<DataType> = ActionConfig<DataType> | ActionFn<DataType>;
+
+export type ZFProColumns<DataType, ValueType = any> = ProColumns<
+  DataType,
+  ValueType
+> & {
+  actions?: Action<DataType>[];
+  direction?: 'horizontal' | 'vertical';
+};
+
+export interface ZFProTableProps<
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
+  ValueType = 'text',
+> extends ProTableProps<DataType, Params, ValueType> {
+  columns: ZFProColumns<DataType, ValueType>[];
+}
+```
+
+#### 使用方式
+
+```ts
+const columns: ProColumns<DataType, any> = [
+  {
+    title: '操作',
+    valueType: 'option',
+    key: 'option',
+    actions: [{ type: 'Navigate', to: '/' }],
+  },
+];
+```
+
+#### actions 支持的操作类型
+
+| 操作       | 类型                           | 说明        |
+| ---------- | ------------------------------ | ----------- |
+| `Navigate` | `ActionNavigateAttr<DataType>` | 导航链接    |
+| `Edit`     | `ActionEditAttr<DataType>`     | 编辑操作    |
+| `Delete`   | `ActionDeleteAttr<DataType>`   | 删除操作    |
+| `Click`    | `ActionClickAttr<DataType>`    | 普通点击    |
+| `Switch`   | `ActionSwitchAttr<DataType>`   | Switch 切换 |
+| `Confirm`  | `ActionConfirmAttr<DataType>`  | 二次确认    |
+
+**通用属性**
+
+| 属性名称     | 类型                              | 默认值       | 说明             |
+| ------------ | --------------------------------- | ------------ | ---------------- |
+| `useDisable` | `(record: DataType) => boolean`   | () => false  | 是否禁用         |
+| `useHide`    | `(record: DataType) => boolean`   | () => false  | 是否隐藏         |
+| `collapsed`  | `boolean`                         | false        | 是否收起         |
+| `text`       | `ReactNode`                       | 操作类型决定 | 操作的文本展示   |
+| `useText`    | `(record: DataType) => ReactNode` | null         | 文本展示函数     |
+| `tooltip`    | `ReactNode`                       | null         | tooltip 提示内容 |
+
+#### action 布局方式
+
+- horizontal ：水平布局，默认
+- vertical ：垂直布局
+
+```ts
+const columns: ProColumns<DataType, any> = [
+  {
+    actions: [],
+    direction: 'horizontal', // 布局方式 horizontal vertical
+  }
+```
+
+#### 自定义操作类型
+
+**actions 支持自定义函数返回**
+
+```ts
+type ActionFn<DataType> = (record: DataType) => React.ReactNode;
+```
+
+```ts
+const columns: ProColumns<DataType, any> = [
+  {
+    title: '操作',
+    valueType: 'option',
+    key: 'option',
+    actions: [(record) => <div>{record.name}</div>],
+    direction: 'horizontal', // 布局方式 horizontal vertical
+  },
+];
+```
+
+**自定义操作收起可以在 Dom 元素上添加 data-collapsed='true'，示例：**
+
+```ts
+const columns: ProColumns<DataType, any> = [
+  {
+    title: '操作',
+    valueType: 'option',
+    key: 'option',
+    actions: [(record) => <div data-collapsed="true">{record.name}</div>],
+  },
+];
+```
+
+#### 使用示例
+
+<code src='./demos/OptionBaseTable.tsx'></code>
