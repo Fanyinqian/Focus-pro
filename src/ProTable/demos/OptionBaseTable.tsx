@@ -42,7 +42,7 @@ const OptionBaseTable = () => {
         },
         {
           type: 'Navigate',
-          useNavigate: () => '//www.zhihu.com',
+          useNavigate: () => 'https://www.zhihu.com',
           text: '知乎',
           target: '_blank',
           tooltip: '进入知乎',

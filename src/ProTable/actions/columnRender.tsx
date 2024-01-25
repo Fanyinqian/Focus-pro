@@ -141,6 +141,24 @@ const columnRender = <DataType, valueType>(props: {
     }
     if (type === 'Navigate') {
       const to = action?.useNavigate(record);
+      console.log('TO', to);
+
+      if (
+        typeof to === 'string' &&
+        (to.startsWith('https://') || to.startsWith('http://'))
+      ) {
+        return (
+          <a
+            href={to}
+            target={action?.target || '_self'}
+            rel="noopener noreferrer"
+            style={disabled ? { pointerEvents: 'none' } : {}}
+          >
+            {text || '查看'}
+          </a>
+        );
+      }
+
       return (
         <Link
           // @ts-ignore
