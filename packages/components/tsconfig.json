@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "lib": ["es2017", "dom"],
+    "declaration": true,
+    "paths": {
+      "focus-pro": ["src"],
+      "focus-pro/*": ["src/*", "*"]
+    }
+  },
+  "include": ["./src"]
+}

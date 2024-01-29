@@ -14,7 +14,7 @@ const ProForm = () => {
   return (
     <ZFProForm
       onFinish={async (v) => {
-        alert('提交成功', v);
+        alert(v);
       }}
       //   readonly
       //   initialValues={{tags: [0],email:'163.qq.com'}}

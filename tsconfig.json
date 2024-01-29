@@ -8,9 +8,9 @@
     "baseUrl": "./",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "focus-pro": ["src"],
-      "focus-pro/*": ["src/*", "*"]
+      "focus-pro": ["/packages/components/src"],
+      "focus-pro/*": ["/packages/components/src/*", "*"]
     }
   },
-  "include": [".dumirc.ts", "src/**/*", ".dumi/pages/theme-editor", "docs/**/*"]
+  "include": [".dumirc.ts", ".dumi/pages/theme-editor", "docs/**/*"]
 }
