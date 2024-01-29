@@ -1,0 +1,30 @@
+{
+  "name": "focus-pro",
+  "version": "0.1.0",
+  "description": "A react library developed with dumi",
+  "keywords": [
+    "react",
+    "react18",
+    "reactComponent",
+    "component",
+    "components",
+    "ui",
+    "framework",
+    "frontend"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:watch": "father dev"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.10",
+    "history": "^5.3.0"
+  }
+}
