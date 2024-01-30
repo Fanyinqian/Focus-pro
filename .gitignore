@@ -1,6 +1,7 @@
 node_modules
 /dist
 /packages/**/dist
+/packages/**/node_modules
 /docs-dist
 .dumi/tmp
 .dumi/tmp-test

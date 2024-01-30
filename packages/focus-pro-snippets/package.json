@@ -1,0 +1,63 @@
+{
+  "name": "focus-pro-snippets",
+  "displayName": "focus-pro-snippets",
+  "version": "0.0.1",
+  "description": "focus pro snippets for vscode",
+  "categories": [
+    "Other"
+  ],
+  "bugs": {
+    "url": "https://github.com/Fanyinqian/Focus-pro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fanyinqian/Focus-pro"
+  },
+  "publisher": "fanyinqian",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "build": "vsce package",
+    "compile": "rollup -c ./rollup.config.js",
+    "publish": "npm run renew:readme && npm run compile && npm run build && vsce publish",
+    "renew:readme": "node ./src/scripts/generate-vscode-snippet.ts"
+  },
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "activationEvents": [],
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "icon": "src/pro.png"
+}

@@ -1,0 +1,270 @@
+{
+  "columns": {
+    "prefix": "columns",
+    "body": [
+      "const columns = [",
+      "    {",
+      "      key: 'date',",
+      "      title: '日期',",
+      "      dataIndex: 'date',",
+      "      valueType: 'date',",
+      "    },",
+      "] "
+    ],
+    "description": "columns"
+  },
+  "ZFProTable": {
+    "prefix": "zftable",
+    "body": [
+      "<ZFProTable",
+      "  headerTitle=\"title\"",
+      "  dataSource={datasource}",
+      "  columns={columns}",
+      "  search={false}",
+      "></ZFProTable>"
+    ],
+    "description": "ZFProTable"
+  },
+  "ZFProDescription": {
+    "prefix": "zfdescription",
+    "body": [
+      "<ZFProDescriptions",
+      "  title=\"title\"",
+      "  dataSource={dataSource}",
+      "  columns={columns}",
+      "></ZFProDescriptions>"
+    ],
+    "description": "ZFProDescription"
+  },
+  "ZFSchemaForm": {
+    "prefix": "zfschemaform",
+    "body": [
+      "<ZFSchemaForm ",
+      "  columns={columns} ",
+      "  layout=\"horizontal\"",
+      "  labelCol={{ span: 4 }}",
+      "  grid={true}",
+      "  onFinish={async (v) => console.log(v)} ",
+      "/>"
+    ],
+    "description": "ZFSchemaForm"
+  },
+  "ZFProFormDependency": {
+    "prefix": "zfproformdependency",
+    "body": [
+      "<ZFProFormDependency name={['useMode']}>",
+      "  {({ useMode }) => {",
+      "      if (useMode === 'select') {",
+      "          return (",
+      "                <ZFProFormSelect",
+      "                    options={[",
+      "                        {",
+      "                            value: 'chapter',",
+      "                            label: '盖章后生效',",
+      "                        },",
+      "                    ]}",
+      "                    width=\"md\"",
+      "                    name=\"function\"",
+      "                    label=\"生效方式\"",
+      "                />",
+      "           );",
+      "      }",
+      "      return (",
+      "          <ProFormText width=\"md\" name=\"function\" label=\"生效方式\" />",
+      "      );",
+      "  }}",
+      "</ProFormDependency>"
+    ],
+    "description": "ZFProFormDependency"
+  },
+  "ZFProFormList": {
+    "prefix": "zfproformlist",
+    "body": [
+      "<ZFProFormList",
+      "  name=\"labels\"",
+      "  label=\"用户信息\"",
+      "  initialValue={[",
+      "      {",
+      "            value: '333',",
+      "            label: '333',",
+      "      },",
+      "  ]}",
+      "  copyIconProps={{ Icon: SmileOutlined, tooltipText: '复制此项到末尾' }}",
+      "  deleteIconProps={{",
+      "      Icon: CloseCircleOutlined,",
+      "      tooltipText: '不需要这行了',",
+      "  }}",
+      ">",
+      "  <ZFProFormGroup key=\"group\">",
+      "     <ProFormText name=\"value\" label=\"值\" />",
+      "     <ProFormText name=\"label\" label=\"显示名称\" />",
+      "  </ZFProFormGroup>",
+      "</ZFProFormList>"
+    ],
+    "description": "ZFProFormList"
+  },
+  "ZFConfigProvider": {
+    "prefix": "zfconfigprovider",
+    "body": ["<ZFProConfigProvider theme={theme}>", "</ZFProConfigProvider>"],
+    "description": "ZFConfigProvider"
+  },
+  "ZFProForm": {
+    "prefix": "zfproform",
+    "body": [
+      "<ZFProForm",
+      "  onFinish={async (v) => {",
+      "      alert(v);",
+      "  }}",
+      "  style={{ maxWidth: 600 }}",
+      "></ZFProForm>"
+    ],
+    "description": "ZFProForm"
+  },
+  "ZFProFormMoney": {
+    "prefix": "zfproformmoney",
+    "body": ["<ZFProFormMoney name=\"money\" label=\"money\" />"],
+    "description": "ZFProFormMoney"
+  },
+  "ZFProFormSlider": {
+    "prefix": "zfproformslider",
+    "body": ["<ZFProFormSlider name=\"slider\" label=\"slider\" />"],
+    "description": "ZFProFormSlider"
+  },
+  "ZFProFormText": {
+    "prefix": "zfproformtext",
+    "body": ["<ZFProFormText name=\"text\" label=\"text\" />"],
+    "description": "ZFProFormText"
+  },
+  "ZFProFormDight": {
+    "prefix": "zfproformdight",
+    "body": ["<ZFProFormDight name=\"dight\" label=\"dight\" />"],
+    "description": "ZFProFormDight"
+  },
+  "ZFProFormText.Password": {
+    "prefix": "zfproformtextpassword",
+    "body": ["<ZFProFormText.Password name=\"password\" label=\"password\" />"],
+    "description": "ZFProFormText.Password"
+  },
+  "ZFProFormTextArea": {
+    "prefix": "zfproformtextarea",
+    "body": ["<ZFProFormTextArea name=\"area\" label=\"area\" />"],
+    "description": "ZFProFormTextArea"
+  },
+  "ZFProFormCaptcha": {
+    "prefix": "zfproformcaptcha",
+    "body": ["<ZFProFormCaptcha name=\"captcha\" label=\"captcha\" />"],
+    "description": "ZFProFormCaptcha"
+  },
+  "ZFProFormDatePicker": {
+    "prefix": "zfproformdatepicker",
+    "body": [
+      "<ZFProFormDatePicker name=\"datepicker\" label=\"datepicker\" />"
+    ],
+    "description": "ZFProFormDatePicker"
+  },
+  "ZFProFormDateTimePicker": {
+    "prefix": "zfproformdatetimepicker",
+    "body": [
+      "<ZFProFormDateTimePicker name=\"datetimepicker\" label=\"datetimepicker\" />"
+    ],
+    "description": "ZFProFormDateTimePicker"
+  },
+  "ZFProFormDateRangePicker": {
+    "prefix": "zfproformdaterangepicker",
+    "body": [
+      "<ZFProFormDateRangePicker name=\"daterangepicker\" label=\"daterangepicker\" />"
+    ],
+    "description": "ZFProFormDateRangePicker"
+  },
+  "ZFProFormDateTimeRangePicker": {
+    "prefix": "zfproformdatetimerangepicker",
+    "body": [
+      "<ZFProFormDateTimeRangePicker name=\"datetimerangepicker\" label=\"datetimerangepicker\" />"
+    ],
+    "description": "ZFProFormDateTimeRangePicker"
+  },
+  "ZFProFormSelect": {
+    "prefix": "zfproformselect",
+    "body": [
+      "<ZFProFormSelect name=\"select\" label=\"select\" valueEnum={valueEnum}/>"
+    ],
+    "description": "ZFProFormSelect"
+  },
+  "ZFProFormTreeSelect": {
+    "prefix": "zfproformtreeselect",
+    "body": [
+      "<ZFProFormTreeSelect name=\"select\" label=\"select\" valueEnum={valueEnum}/>"
+    ],
+    "description": "ZFProFormTreeSelect"
+  },
+  "ZFProFormCheckbox": {
+    "prefix": "zfproformcheckbox",
+    "body": [
+      "<ZFProFormCheckbox name=\"checkbox\" label=\"checkbox\" valueEnum={valueEnum}/>"
+    ],
+    "description": "ZFProFormCheckbox"
+  },
+  "ZFProFormRadio.Group": {
+    "prefix": "zfproformradiogroup",
+    "body": [
+      "<ZFProFormRadio.Group name=\"radio-group\" label=\"radio-group\" options={[]}/>"
+    ],
+    "description": "ProFormRadio.Group"
+  },
+  "ZFProFormSwitch": {
+    "prefix": "zfproformswitch",
+    "body": [
+      "<ZFProFormSwitch name=\"switch\" label=\"switch\" options={[]}/>"
+    ],
+    "description": "ZFProFormSwitch"
+  },
+  "ZFProFormUploadDragger": {
+    "prefix": "zfproformuploaddragger",
+    "body": [
+      "<ZFProFormUploadDragger label=\"dragger\" name=\"dragger\" action=\"upload.do\" />"
+    ],
+    "description": "ZFProFormUploadDragger"
+  },
+  "ZFProFormUploadButton": {
+    "prefix": "zfproformuploadbutton",
+    "body": [
+      "<ZFProFormUploadButton label=\"upload\" name=\"upload\" action=\"upload.do\" />"
+    ],
+    "description": "ZFProFormUploadButton"
+  },
+  "ZFProFormSegmented": {
+    "prefix": "zfproformsegmented",
+    "body": [
+      "<ZFProFormSegmented label=\"segmented\" name=\"segmented\" valueEnum={valueEnum} />"
+    ],
+    "description": "ZFProFormSegmented"
+  },
+  "ZFProFromBadges": {
+    "prefix": "zfproformbadges",
+    "body": [
+      "<ZFProFromBadges label=\"badges\" name=\"badges\" valueEnum={valueEnum} />"
+    ],
+    "description": "ZFProFromBadges"
+  },
+  "ZFProFromTags": {
+    "prefix": "zfproformtags",
+    "body": [
+      "<ZFProFromTags label=\"tags\" name=\"tags\" valueEnum={valueEnum} />"
+    ],
+    "description": "ZFProFromTags"
+  },
+  "ZFProFormEmail": {
+    "prefix": "zfproformemail",
+    "body": [
+      "<ZFProFromEmail ",
+      "  label=\"email\" ",
+      "  name=\"email\" ",
+      "  fieldProps={{",
+      "   defaultValue: '1234@qq.com',",
+      "   allowClear: true,",
+      "   placeholder: '请输入',",
+      "}}/>"
+    ],
+    "description": "ZFProFormEmail"
+  }
+}

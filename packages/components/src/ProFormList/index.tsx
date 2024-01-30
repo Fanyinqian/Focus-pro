@@ -1,5 +1,5 @@
 import { ProFormList } from '@ant-design/pro-components';
 
-const ZHProFormList: typeof ProFormList = ProFormList;
+const ZFProFormList: typeof ProFormList = ProFormList;
 
-export default ZHProFormList;
+export default ZFProFormList;
