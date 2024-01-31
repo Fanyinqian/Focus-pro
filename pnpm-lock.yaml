@@ -4,156 +4,102 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  '@ant-design/icons':
+    specifier: ^5.2.6
+    version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
+  '@ant-design/pro-components':
+    specifier: ^2.6.43
+    version: 2.6.43(antd@5.12.8)(rc-field-form@1.41.0)(react-dom@18.2.0)(react@18.2.0)
+  '@ant-design/pro-form':
+    specifier: ^2.23.1
+    version: 2.23.1(antd@5.12.8)(rc-field-form@1.41.0)(react-dom@18.2.0)(react@18.2.0)
+  '@ant-design/pro-provider':
+    specifier: ^2.13.5
+    version: 2.13.5(antd@5.12.8)(react-dom@18.2.0)(react@18.2.0)
+  '@ant-design/pro-utils':
+    specifier: ^2.15.4
+    version: 2.15.4(antd@5.12.8)(react-dom@18.2.0)(react@18.2.0)
+  antd:
+    specifier: ^5.12.8
+    version: 5.12.8(react-dom@18.2.0)(react@18.2.0)
+  antd-token-previewer:
+    specifier: ^2.0.5
+    version: 2.0.5(@babel/core@7.23.7)(@types/react@18.2.46)(antd@5.12.8)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
+  history:
+    specifier: ^5.3.0
+    version: 5.3.0
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
+  react-router-dom:
+    specifier: '>=5.0.0'
+    version: 6.21.2(react-dom@18.2.0)(react@18.2.0)
 
-  .:
-    dependencies:
-      '@ant-design/icons':
-        specifier: ^5.2.6
-        version: 5.2.6(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/pro-components':
-        specifier: ^2.6.43
-        version: 2.6.43(antd@5.12.8)(rc-field-form@1.41.0)(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/pro-form':
-        specifier: ^2.23.1
-        version: 2.23.1(antd@5.12.8)(rc-field-form@1.41.0)(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/pro-provider':
-        specifier: ^2.13.5
-        version: 2.13.5(antd@5.12.8)(react-dom@18.2.0)(react@18.2.0)
-      '@ant-design/pro-utils':
-        specifier: ^2.15.4
-        version: 2.15.4(antd@5.12.8)(react-dom@18.2.0)(react@18.2.0)
-      antd:
-        specifier: ^5.12.8
-        version: 5.12.8(react-dom@18.2.0)(react@18.2.0)
-      antd-token-previewer:
-        specifier: ^2.0.5
-        version: 2.0.5(@babel/core@7.23.9)(@types/react@18.2.46)(antd@5.12.8)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
-      history:
-        specifier: ^5.3.0
-        version: 5.3.0
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
-      react-router-dom:
-        specifier: '>=5.0.0'
-        version: 6.21.2(react-dom@18.2.0)(react@18.2.0)
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.23.9
-        version: 7.23.9
-      '@babel/preset-env':
-        specifier: ^7.23.9
-        version: 7.23.9(@babel/core@7.23.9)
-      '@commitlint/cli':
-        specifier: ^17.1.2
-        version: 17.8.1
-      '@commitlint/config-conventional':
-        specifier: ^17.1.0
-        version: 17.8.1
-      '@types/lodash':
-        specifier: ^4.14.202
-        version: 4.14.202
-      '@types/react':
-        specifier: ^18.0.0
-        version: 18.2.46
-      '@types/react-dom':
-        specifier: ^18.0.0
-        version: 18.2.18
-      '@types/react-router-dom':
-        specifier: ^5.3.3
-        version: 5.3.3
-      '@umijs/lint':
-        specifier: ^4.0.0
-        version: 4.0.90(eslint@8.56.0)(stylelint@14.16.1)(typescript@5.3.3)
-      axios:
-        specifier: ^1.6.5
-        version: 1.6.5
-      dumi:
-        specifier: ^2.2.13
-        version: 2.2.16(@babel/core@7.23.9)(@types/node@20.5.1)(@types/react@18.2.46)(eslint@8.56.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.3.3)(webpack@5.89.0)
-      eslint:
-        specifier: ^8.23.0
-        version: 8.56.0
-      father:
-        specifier: ^4.1.0
-        version: 4.3.8(@types/node@20.5.1)(webpack@5.89.0)
-      husky:
-        specifier: ^8.0.1
-        version: 8.0.3
-      lint-staged:
-        specifier: ^13.0.3
-        version: 13.3.0
-      prettier:
-        specifier: ^2.7.1
-        version: 2.8.8
-      prettier-plugin-organize-imports:
-        specifier: ^3.0.0
-        version: 3.2.4(prettier@2.8.8)(typescript@5.3.3)
-      prettier-plugin-packagejson:
-        specifier: ^2.2.18
-        version: 2.4.8(prettier@2.8.8)
-      react:
-        specifier: ^18.0.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.0.0
-        version: 18.2.0(react@18.2.0)
-      stylelint:
-        specifier: ^14.9.1
-        version: 14.16.1
-
-  packages/components:
-    dependencies:
-      dayjs:
-        specifier: ^1.11.10
-        version: 1.11.10
-      history:
-        specifier: ^5.3.0
-        version: 5.3.0
-
-  packages/focus-pro-snippets:
-    dependencies:
-      fs-extra:
-        specifier: ^11.2.0
-        version: 11.2.0
-    devDependencies:
-      '@types/fs-extra':
-        specifier: ^11.0.4
-        version: 11.0.4
-      '@types/mocha':
-        specifier: ^10.0.6
-        version: 10.0.6
-      '@types/node':
-        specifier: 18.x
-        version: 18.19.11
-      '@types/vscode':
-        specifier: ^1.54.0
-        version: 1.85.0
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^6.19.1
-        version: 6.20.0(@typescript-eslint/parser@6.20.0)(eslint@8.56.0)(typescript@5.3.3)
-      '@typescript-eslint/parser':
-        specifier: ^6.19.1
-        version: 6.20.0(eslint@8.56.0)(typescript@5.3.3)
-      '@vscode/test-cli':
-        specifier: ^0.0.4
-        version: 0.0.4
-      '@vscode/test-electron':
-        specifier: ^2.3.9
-        version: 2.3.9
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@types/node@18.19.11)(typescript@5.3.3)
-      tslib:
-        specifier: ^2.6.2
-        version: 2.6.2
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
+devDependencies:
+  '@commitlint/cli':
+    specifier: ^17.1.2
+    version: 17.8.1
+  '@commitlint/config-conventional':
+    specifier: ^17.1.0
+    version: 17.8.1
+  '@types/lodash':
+    specifier: ^4.14.202
+    version: 4.14.202
+  '@types/react':
+    specifier: ^18.0.0
+    version: 18.2.46
+  '@types/react-dom':
+    specifier: ^18.0.0
+    version: 18.2.18
+  '@types/react-router-dom':
+    specifier: ^5.3.3
+    version: 5.3.3
+  '@umijs/lint':
+    specifier: ^4.0.0
+    version: 4.0.90(eslint@8.56.0)(stylelint@14.16.1)(typescript@5.3.3)
+  axios:
+    specifier: ^1.6.5
+    version: 1.6.5
+  dumi:
+    specifier: ^2.2.13
+    version: 2.2.16(@babel/core@7.23.7)(@types/node@20.5.1)(@types/react@18.2.46)(eslint@8.56.0)(prettier@2.8.8)(react-dom@18.2.0)(react@18.2.0)(stylelint@14.16.1)(typescript@5.3.3)(webpack@5.89.0)
+  eslint:
+    specifier: ^8.23.0
+    version: 8.56.0
+  father:
+    specifier: ^4.1.0
+    version: 4.3.8(@types/node@20.5.1)(webpack@5.89.0)
+  focus-pro:
+    specifier: ^0.1.0
+    version: 0.1.0(@babel/core@7.23.7)(@types/react@18.2.46)(rc-field-form@1.41.0)(react-dom@18.2.0)(react-is@18.2.0)(react-router-dom@6.21.2)(react@18.2.0)
+  husky:
+    specifier: ^8.0.1
+    version: 8.0.3
+  lint-staged:
+    specifier: ^13.0.3
+    version: 13.3.0
+  prettier:
+    specifier: ^2.7.1
+    version: 2.8.8
+  prettier-plugin-organize-imports:
+    specifier: ^3.0.0
+    version: 3.2.4(prettier@2.8.8)(typescript@5.3.3)
+  prettier-plugin-packagejson:
+    specifier: ^2.2.18
+    version: 2.4.8(prettier@2.8.8)
+  react:
+    specifier: ^18.0.0
+    version: 18.2.0
+  react-dom:
+    specifier: ^18.0.0
+    version: 18.2.0(react@18.2.0)
+  stylelint:
+    specifier: ^14.9.1
+    version: 14.16.1
 
 packages:
 
@@ -612,6 +558,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.23.6
+    dev: false
 
   /@babel/helper-builder-binary-assignment-operator-visitor@7.22.15:
     resolution: {integrity: sha512-QkBXwGgaoC2GtGZRoma6kv7Szfv06khvhFav67ZExau2RaXzy8MpHSMO2PNoP2XtmQphJQRHFfg77Bq731Yizw==}
@@ -6050,15 +5997,6 @@ packages:
 
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
-    dev: false
-
-  /cliui@7.0.4:
-    resolution: {integrity: sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ==}
-    dependencies:
-      string-width: 4.2.3
-      strip-ansi: 6.0.1
-      wrap-ansi: 7.0.0
-    dev: true
 
   /cliui@8.0.1:
     resolution: {integrity: sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ==}
