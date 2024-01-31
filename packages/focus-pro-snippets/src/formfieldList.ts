@@ -1,0 +1,25 @@
+const formfieldLists = [
+  'ZFProFormMoney',
+  'ZFProFormSlider',
+  'ZFProFormText',
+  'ZFProFormDight',
+  'ZFProFormText.Password',
+  'ZFProFormTextArea',
+  'ZFProFormCaptcha',
+  'ZFProFormDatePicker',
+  'ZFProFormDateTimePicker',
+  'ZFProFormDateRangePicker',
+  'ZFProFormSelect',
+  'ZFProFormTreeSelect',
+  'ZFProFormCheckbox',
+  'ZFProFormRadio.Group',
+  'ZFProFormSwitch',
+  'ZFProFormUploadDragger',
+  'ZFProFormUploadButton',
+  'ZFProFormSegmented',
+  'ZFProFromBadges',
+  'ZFProFromTags',
+  'ZFProFormEmail',
+];
+
+export default formfieldLists;
