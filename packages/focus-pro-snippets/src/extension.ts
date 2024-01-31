@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-const componentList = require('./componentList.ts');
-const formfieldList = require('./formfieldList');
+import componentList from './componentList';
+import formfieldList from './formfieldList';
 
 const comfileFiles = [
   'react',
@@ -13,7 +13,7 @@ const comfileFiles = [
 /**
  * 移入组件，出现介绍
  */
-function providerHover(
+function provideHover(
   document: vscode.TextDocument,
   position: vscode.Position,
 ) {
@@ -25,12 +25,13 @@ function providerHover(
     if (line.text.includes(`<${component}`)) {
       isFocusComponentDom = true;
       if (formfieldList.includes(component)) {
-        matchComponent = 'ProFormFields';
+        matchComponent = 'ZFProFormFields';
       } else {
         matchComponent = component;
       }
     }
   }
+
   if (isFocusComponentDom) {
     const isCN = vscode.env.language === 'zh-cn';
     let componentDocPath = '';
@@ -59,9 +60,12 @@ Focus Pro -> https://fanyinqian.github.io/Focus-pro/components/${componentDocPat
  * @param context 上下文，用subscritions数组存储悬停事件监听器的引用
  */
 export function activate(context: vscode.ExtensionContext) {
+  vscode.window.showInformationMessage(
+    'Welcome to use Focus-pro-snippets ！🥳',
+  );
   context.subscriptions.push(
     vscode.languages.registerHoverProvider(comfileFiles, {
-      providerHover,
+      provideHover,
     }),
   );
 }

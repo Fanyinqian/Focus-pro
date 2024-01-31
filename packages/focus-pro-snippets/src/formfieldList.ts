@@ -22,4 +22,4 @@ const formfieldLists = [
   'ZFProFormEmail',
 ];
 
-module.exports = formfieldLists;
+export default formfieldLists;

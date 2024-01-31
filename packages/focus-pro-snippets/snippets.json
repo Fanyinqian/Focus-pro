@@ -14,7 +14,7 @@
     "description": "columns"
   },
   "ZFProTable": {
-    "prefix": "zftable",
+    "prefix": "zfprotable",
     "body": [
       "<ZFProTable",
       "  headerTitle=\"title\"",
@@ -26,7 +26,7 @@
     "description": "ZFProTable"
   },
   "ZFProDescription": {
-    "prefix": "zfdescription",
+    "prefix": "zfprodescription",
     "body": [
       "<ZFProDescriptions",
       "  title=\"title\"",

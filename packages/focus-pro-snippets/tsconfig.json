@@ -2,6 +2,12 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-    "typeRoots": ["node_modules/@types", "types"]
-  }
+    "typeRoots": ["node_modules/@types", "types"],
+    "esModuleInterop": true,
+    "paths": {
+      "tslib": ["node_modules/tslib/tslib.d.ts"],
+      "dumi": ["node_modules/dumi"]
+    }
+  },
+  "allowImportingTsExtensions": true
 }
