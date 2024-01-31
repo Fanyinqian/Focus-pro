@@ -9,7 +9,7 @@ hero:
     - text: 快速开始
       link: /guide
     - text: gitHub
-      link: /
+      link: https://github.com/Fanyinqian/Focus-pro
 features:
   - title: 开箱即用
     emoji: 🚀
@@ -17,7 +17,16 @@ features:
   - title: 预置 valueType
     emoji: 💎
     description: 针对业务扩展 valueType
-  - title: 预设样式
+  - title: 自定义主题
     emoji: 🌈
-    description: 针对业务预设样式
+    description: 支持定制主题，满足多样化需求
+  - title: VSCode 插件
+    emoji: 🛠️
+    description: 提供代码补全、语法高亮、智能提示功能
+  - title: 支持 Typescript
+    emoji: 🌍
+    description: 使用 Typescript 构建，提供良好的组件类型系统
+  - title: 按需引入
+    emoji: 🌴
+    description: 每一个组件都可单独引入，并有着良好的 tree-shaking 优化
 ---

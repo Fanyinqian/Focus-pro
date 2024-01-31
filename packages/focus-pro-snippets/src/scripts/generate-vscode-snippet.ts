@@ -1,8 +1,9 @@
 // 根据ComponentList写入vscode-snippets README.md
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const componentList = require('../componentList.ts');
+import componentList from '../componentList';
+
 const baseTemplate = fs.readFileSync(
   path.join(__dirname, '../../base-template.md'),
   'utf-8',
@@ -10,7 +11,7 @@ const baseTemplate = fs.readFileSync(
 
 let tableTemplate = '';
 
-componentList.forEach((f) => {
+componentList.forEach((f: string) => {
   if (f[0].charCodeAt(0) >= 65 && f[0].charCodeAt(0) <= 90) {
     //组件
     tableTemplate += `\n|${f}|snippet a Focus-pro ${f} Component|`;

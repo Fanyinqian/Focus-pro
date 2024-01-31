@@ -14,7 +14,9 @@ ProComponent 的增强版，在包括了 ProComponent 所有功能的基础上�
 
 ## 安装
 
-// TODO：发包以后再补充
+```
+npm install focus-pro
+```
 
 ## 使用
 

@@ -1,13 +1,13 @@
-const formfieldList = require('./formfieldList.ts');
-const componentLists = [
+import formfieldList from './formfieldList';
+const componentList = [
   'ZFProTable',
   'ZFProDescription',
   'ZFSchemaForm',
   'ZFProFormDependency',
   'ZFProFormList',
   'ZFProForm',
-  'ZFProvider',
+  'ZFConfigProvider',
   ...formfieldList,
 ];
 
-module.exports = componentLists;
+export default componentList;
