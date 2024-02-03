@@ -2,8 +2,8 @@ import type {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-components';
-import { StatusColorMap } from '../constant';
-import colors from '../constant/colors';
+import { StatusColorMap } from '../../constant';
+import colors from '../../constant/colors';
 
 type GetTagColorParam = {
   color?: string;

@@ -11,8 +11,8 @@ import { EditOrReadOnlyContext } from '@ant-design/pro-form/es/BaseForm/EditOrRe
 import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { Select, Tag } from 'antd';
 import { FC, useContext } from 'react';
-import { getTagColor, isProEnumMap } from '../../utils';
 import Display from '../Display';
+import { getTagColor, isProEnumMap } from '../utils';
 import styles from './index.module.less';
 
 const Tags: FC<ProFieldFCRenderProps> = (props) => {

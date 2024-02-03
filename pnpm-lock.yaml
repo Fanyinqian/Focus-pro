@@ -105,6 +105,9 @@ importers:
 
   packages/components:
     dependencies:
+      copy-to-clipboard:
+        specifier: ^3.3.3
+        version: 3.3.3
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10

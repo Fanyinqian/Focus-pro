@@ -6,7 +6,7 @@ import {
 import { Space, Tag } from 'antd';
 import colors from 'focus-pro/constant/colors';
 import { FC } from 'react';
-import { getTagColor, isProEnumMap } from '../../utils';
+import { getTagColor, isProEnumMap } from '../utils';
 import styles from './index.module.less';
 
 interface DisplayProps {

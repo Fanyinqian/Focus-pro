@@ -21,6 +21,7 @@ import {
 // 自定义的 ProFormFields
 import ZFProFromBadges from '../ValueType/badges/FormField';
 import ZFProFormEmail from '../ValueType/email/FormField';
+import ZFProFormSecretKey from '../ValueType/secretKey/FormField';
 import ZFProFormTags from '../ValueType/tags/FormField';
 
 export {
@@ -33,6 +34,7 @@ export {
   ZFProFormDigit,
   ZFProFormEmail,
   ZFProFormMoney,
+  ZFProFormSecretKey,
   ZFProFormSegmented,
   ZFProFormSelect,
   ZFProFormSlider,

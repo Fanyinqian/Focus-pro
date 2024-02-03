@@ -1,6 +1,6 @@
 import { ZFProForm, ZFProFormTags } from 'focus-pro';
 
-const ProTable = () => {
+const ProForm = () => {
   const valueEnum = {
     P0: {
       text: 'P0',
@@ -24,8 +24,6 @@ const ProTable = () => {
     },
   };
 
-  // const dataSource = [{ tags: ['P1'] }, { tags: ['P2'] }, { tags: ['P3'] }];
-
   return (
     <ZFProForm>
       <ZFProFormTags valueEnum={valueEnum} />
@@ -33,4 +31,4 @@ const ProTable = () => {
   );
 };
 
-export default ProTable;
+export default ProForm;

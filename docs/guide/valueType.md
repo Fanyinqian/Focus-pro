@@ -94,3 +94,20 @@ interface LinkProps {
 表单参数与 [Select](https://ant.design/components/select-cn/) 一致。通过 [valueEnum](http://usc-pro.in.zhihu.com/components/value-type#typescript-%E5%AE%9A%E4%B9%89-1) 生成 form 选项和 table 项展示。
 
 <code src='@/ValueType/demos/badges/BadgeTable.tsx'></code>
+
+## SecretKey
+
+密钥生成组件。
+
+:::info{title=注意}
+暂不支持 table 的搜索功能
+:::
+
+##### API
+
+| 参数      | 说明                | 类型      | 默认值 |
+| --------- | ------------------- | --------- | ------ |
+| keyLength | 秘钥长度            | `number`  | 16     |
+| hide      | 隐藏显示为 \*\*\*\* | `boolean` | true   |
+
+<code src='@/ValueType/demos/secretKey/SecretKeyForm'></code>
