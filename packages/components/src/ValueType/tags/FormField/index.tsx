@@ -16,13 +16,19 @@ import { getTagColor, isProEnumMap } from '../utils';
 import styles from './index.module.less';
 
 const Tags: FC<ProFieldFCRenderProps> = (props) => {
-  const { valueEnum, mode, value } = props;
+  const { valueEnum, mode, value, fieldProps = {} } = props;
   // 组件的 mode 有三种：read、edit、update
   if (mode === 'read') {
-    return <Display text={value} valueEnum={valueEnum}></Display>;
+    return (
+      <Display
+        text={value}
+        valueEnum={valueEnum}
+        fieldProps={fieldProps}
+      ></Display>
+    );
   }
   // Select 的 mode 有两种模式：mutiple 和 tags
-  const selectMode = props.fieldProps?.mode || '';
+  const selectMode = fieldProps?.mode || '';
   // 二者都可以多选，区别在于tags支持用户自由输入多选选项，mutiple仅支持从已有条目选择
   const tagStyle = ['mutiple', 'tags'].includes(selectMode)
     ? {
@@ -54,19 +60,25 @@ const Tags: FC<ProFieldFCRenderProps> = (props) => {
     });
   };
 
-  return <Select {...props.fieldProps}>{renderOption()}</Select>;
+  return <Select {...fieldProps}>{renderOption()}</Select>;
 };
 
 const FormField: FC<
   ProFormFieldItemProps<ProFormSelectProps, any> & {
     valueEnum?: ProSchemaValueEnumMap | ProSchemaValueEnumObj | undefined;
+    fieldProps?: any;
   }
 > = (props) => {
   const mode = useContext(EditOrReadOnlyContext)?.mode as ProFieldFCMode;
 
   return (
     <ProForm.Item {...props}>
-      <Tags valueEnum={props.valueEnum} mode={mode} text=""></Tags>
+      <Tags
+        valueEnum={props.valueEnum}
+        mode={mode}
+        text=""
+        fieldProps={props.fieldProps}
+      ></Tags>
     </ProForm.Item>
   );
 };

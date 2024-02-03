@@ -4,17 +4,21 @@ import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { AutoComplete, AutoCompleteProps } from 'antd';
 import { FC, useContext, useState } from 'react';
 import Display from '../Display';
-export const Email: FC<
-  { mode: ProFieldFCMode; fieldProps?: any } & AutoCompleteProps
+
+const Email: FC<
+  { mode?: ProFieldFCMode; fieldProps?: any } & AutoCompleteProps
 > = (props) => {
   const [options, setOptions] = useState<{ value: string; label: string }[]>(
     [],
   );
-  const { value = '-', mode } = props;
+
+  // 当来源是renderFormItem而非FormField时mode为undefined
+  const { mode = '', value = '-' } = props;
+  // console.log('eeee', mode, props);
+  // 针对 FormField 存在两种mode模式所特意做的判断
   if (mode === 'read') {
     return <Display text={value} />;
   }
-  console.log('props', props.fieldProps);
 
   const handleSearch = (value: string) => {
     let res: { value: string; label: string }[] = [];
@@ -22,7 +26,7 @@ export const Email: FC<
       res = [];
     } else {
       res = ['gmail.com', '163.com', 'qq.com'].map((domain) => ({
-        value,
+        value: `${value}@${domain}`,
         label: `${value}@${domain}`,
       }));
     }
@@ -39,17 +43,22 @@ export const Email: FC<
   );
 };
 
+/**
+ * FormField组件存在只读和编辑两种情况，所以必须传mode
+ *
+ * */
 const FormField: FC<ProFormFieldItemProps<AutoCompleteProps, any>> = (
   props,
 ) => {
   const mode = useContext(EditOrReadOnlyContext)?.mode as ProFieldFCMode;
-  console.log('edit Mode', props);
-
+  // console.log('PROPS', props);
   return (
     <ProForm.Item {...props}>
       <Email {...props.fieldProps} mode={mode}></Email>
     </ProForm.Item>
   );
 };
+
+export { Email };
 
 export default FormField;

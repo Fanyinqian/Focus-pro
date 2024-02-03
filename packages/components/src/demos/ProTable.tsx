@@ -29,6 +29,9 @@ const ProTable = () => {
       title: '邮箱',
       dataIndex: 'email',
       valueType: 'email',
+      fieldProps: {
+        value: '123',
+      },
     },
     {
       key: 'tags',

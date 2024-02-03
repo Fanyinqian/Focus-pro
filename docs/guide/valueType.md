@@ -27,7 +27,7 @@ focus-pro 在 ProComponents 的基础上，新增了更为丰富的 valueType �
 
 ## email
 
-支持的参数与 [a](https://www.runoob.com/tags/tag-a.html) 标签一致。
+表单参数通过`fieldProps`传入，支持的参数与 [AutoComplete](https://ant.design/components/auto-complete-cn/) 一致。table、description 等只读展示组件支持的参数与 [a](https://www.runoob.com/tags/tag-a.html) 标签一致。
 
 <code src='@/ValueType/demos/email/EmailTable.tsx'></code>
 

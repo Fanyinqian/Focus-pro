@@ -15,61 +15,75 @@ order: 1
 
 valueType 是通用配置的核心，focus pro 会根据 valueType 来映射成不同的表单项或表格数据，具体查看下方：
 
-| valueType          | 说明                         |
-| ------------------ | ---------------------------- |
-| `text`             | 文本框                       |
-| `password`         | 密码输入框                   |
-| `money`            | 金额输入框                   |
-| `index`            | 索引                         |
-| `indexBorder`      | 索引带边框                   |
-| `option`           | 下拉选择                     |
-| `textarea`         | 文本域                       |
-| `date`             | 日期                         |
-| `dateWeek`         | 周                           |
-| `dateMonth`        | 月                           |
-| `dateQuarter`      | 季度输入                     |
-| `dateYear`         | 年份输入                     |
-| `dateTime`         | 日期时间                     |
-| `fromNow`          | 相对于当前时间               |
-| `dateRange`        | 日期区间                     |
-| `dateTimeRange`    | 日期时间区间                 |
-| `dateWeekRange`    | 周范围选择器                 |
-| `dateMonthRange`   | 月范围选择器                 |
-| `dateQuarterRange` | 周范围选择器                 |
-| `dateYearRange`    | 年范围选择器                 |
-| `time`             | 时间                         |
-| `timeRange`        | 时间区间                     |
-| `select`           | 下拉框                       |
-| `checkbox`         | 多选框                       |
-| `rate`             | 星级组件                     |
-| `slider`           | 滑动条                       |
-| `radio`            | 单选框                       |
-| `radioButton`      | 按钮单选框                   |
-| `progress`         | 进度条                       |
-| `percent`          | 百分比组件                   |
-| `digit`            | 数字输入框                   |
-| `digitRange`       | 数字范围输入框               |
-| `second`           | 秒格式化                     |
-| `code`             | 代码框                       |
-| `jsonCode`         | 代码框，但是带了 json 格式化 |
-| `avatar`           | 头像                         |
-| `switch`           | 开关                         |
-| `image`            | 图片                         |
-| `cascader`         | 级联选择器                   |
-| `treeSelect`       | 树形下拉框                   |
-| `color`            | 颜色选择器                   |
-| `segmented`        | 分段器                       |
-| `group`            | 分组                         |
-| `formList`         | 表单列表                     |
-| `formSet`          | 表单集合                     |
-| `divider`          | 分割线                       |
-| `dependency`       | 级联组件                     |
-
-### 以下是 focus-pro 新增的 valueType
-
-| valueType | 说明       |
-| --------- | ---------- |
-| `email`   | 邮箱选择器 |
+| valueType          | 说明                           | 来源                                             |
+| ------------------ | ------------------------------ | ------------------------------------------------ |
+| `text`             | 文本框                         | `ant-pro`                                        |
+| `textarea`         | 文本域                         | `ant-pro`                                        |
+| `password`         | 密码输入框                     | `ant-pro`                                        |
+| `money`            | 金额输入框                     | `ant-pro`                                        |
+| `date`             | 日期                           | `ant-pro`                                        |
+| `password`         | 密码输入框                     | `ant-pro`                                        |
+| `money`            | 金额输入框                     | `ant-pro`                                        |
+| `index`            | 索引                           | `ant-pro`                                        |
+| `indexBorder`      | 索引带边框                     | `ant-pro`                                        |
+| `option`           | 下拉选择                       | `ant-pro`                                        |
+| `textarea`         | 文本域                         | `ant-pro`                                        |
+| `date`             | 日期                           | `ant-pro`                                        |
+| `dateWeek`         | 周                             | `ant-pro`                                        |
+| `dateMonth`        | 月                             | `ant-pro`                                        |
+| `dateQuarter`      | 季度输入                       | `ant-pro`                                        |
+| `dateYear`         | 年份输入                       | `ant-pro`                                        |
+| `dateTime`         | 日期时间                       | `ant-pro`                                        |
+| `fromNow`          | 相对于当前时间                 | `ant-pro`                                        |
+| `dateRange`        | 日期区间                       | `ant-pro`                                        |
+| `dateTimeRange`    | 日期时间区间                   | `ant-pro`                                        |
+| `dateWeekRange`    | 周范围选择器                   | `ant-pro`                                        |
+| `dateMonthRange`   | 月范围选择器                   | `ant-pro`                                        |
+| `dateQuarterRange` | 周范围选择器                   | `ant-pro`                                        |
+| `dateYearRange`    | 年范围选择器                   | `ant-pro`                                        |
+| `time`             | 时间                           | `ant-pro`                                        |
+| `timeRange`        | 时间区间                       | `ant-pro`                                        |
+| `select`           | 下拉框                         | `ant-pro`                                        |
+| `checkbox`         | 多选框                         | `ant-pro`                                        |
+| `rate`             | 星级组件                       | `ant-pro`                                        |
+| `slider`           | 滑动条                         | `ant-pro`                                        |
+| `radio`            | 单选框                         | `ant-pro`                                        |
+| `radioButton`      | 按钮单选框                     | `ant-pro`                                        |
+| `progress`         | 进度条                         | `ant-pro`                                        |
+| `percent`          | 百分比组件                     | `ant-pro`                                        |
+| `digit`            | 数字输入框                     | `ant-pro`                                        |
+| `digitRange`       | 数字范围输入框                 | `ant-pro`                                        |
+| `second`           | 秒格式化                       | `ant-pro`                                        |
+| `code`             | 代码框                         | `ant-pro`                                        |
+| `jsonCode`         | 代码框，但是带了 json 格式化   | `ant-pro`                                        |
+| `avatar`           | 头像                           | `ant-pro`                                        |
+| `switch`           | 开关                           | `ant-pro`                                        |
+| `image`            | 图片                           | `ant-pro`                                        |
+| `cascader`         | 级联选择器                     | `ant-pro`                                        |
+| `treeSelect`       | 树形下拉框                     | `ant-pro`                                        |
+| `color`            | 颜色选择器                     | `ant-pro`                                        |
+| `segmented`        | 分段器                         | `ant-pro`                                        |
+| `group`            | 分组                           | `ant-pro`                                        |
+| `formList`         | 表单列表                       | `ant-pro`                                        |
+| `formSet`          | 表单集合                       | `ant-pro`                                        |
+| `divider`          | 分割线                         | `ant-pro`                                        |
+| `dependency`       | 级联组件                       | `ant-pro`                                        |
+| `email`            | 邮箱选择器                     | <font class='focus-valuetype'>`focus-pro`</font> |
+| `tags`             | 标签展示/选择                  | <font class='focus-valuetype'>`focus-pro`</font> |
+| `link`             | 连接展示                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `user`             | 展示用户头像，传入用户名       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `badge`            | 多彩徽标                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `secretKey`        | 带复制功能的秘钥，支持显示隐藏 | <font class='focus-valuetype'>`focus-pro`</font> |
+| `navigate`         | 导航链接                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `upload`           | 文件上传                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `miniTrendChart`   | 迷你图表                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `description`      | 定义列表                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `yanli`            | 盐粒输入框                     | <font class='focus-valuetype'>`focus-pro`</font> |
+| `compact`          | 组合输入框                     | <font class='focus-valuetype'>`focus-pro`</font> |
+| `form / group`     | form 组                        | <font class='focus-valuetype'>`focus-pro`</font> |
+| `tileSelect`       | 平铺选择器                     | <font class='focus-valuetype'>`focus-pro`</font> |
+| `relationCard`     | 关系卡片                       | <font class='focus-valuetype'>`focus-pro`</font> |
+| `text / group`     | 文本组合                       | <font class='focus-valuetype'>`focus-pro`</font> |
 
 ## 使用
 

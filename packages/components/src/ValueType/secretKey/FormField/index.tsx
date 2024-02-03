@@ -9,14 +9,27 @@ import { ProFormFieldItemProps } from '@ant-design/pro-form/es/typing';
 import { Button, message } from 'antd';
 import copy from 'copy-to-clipboard';
 import { FC, useContext, useState } from 'react';
+import Display from '../Display';
 import { generateRandomkey } from '../utils';
+interface ISecretKeyProps {
+  keyLength?: number;
+  onChange?: () => void;
+  hide?: boolean;
+}
 
-const SecretKey: FC<ProFieldFCRenderProps> = (props) => {
+const SecretKey: FC<ProFieldFCRenderProps & ISecretKeyProps> = (props) => {
   const {
-    fieldProps: { keyLength = 16, onChange = () => {}, hide = true } = {},
+    keyLength = 16,
+    onChange = () => {},
+    hide = true,
+    mode = '',
+    value = '-',
   } = props;
-
   const [secretKey, setSecretKey] = useState<string>();
+  if (mode === 'read') {
+    return <Display text={value} />;
+  }
+
   /**生成密钥 */
   const onGenerateKey = () => {
     // 随机生成密钥
@@ -53,7 +66,7 @@ const FormField: FC<
   const mode = useContext(EditOrReadOnlyContext)?.mode as ProFieldFCMode;
   return (
     <ProForm.Item required {...props}>
-      <SecretKey {...props} mode={mode} text=""></SecretKey>
+      <SecretKey {...props.fieldProps} mode={mode} text=""></SecretKey>
     </ProForm.Item>
   );
 };

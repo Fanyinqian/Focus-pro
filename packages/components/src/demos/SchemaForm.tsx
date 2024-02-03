@@ -29,6 +29,10 @@ const SchemaForm = () => {
       title: '邮箱',
       dataIndex: 'email',
       valueType: 'email',
+      // fieldProps:{
+      //   ded: '111',
+      //   disabled: true,
+      // }
     },
     {
       key: 'tags',
